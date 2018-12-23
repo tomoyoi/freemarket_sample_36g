@@ -65,7 +65,8 @@
 
 ## Association
 - belongs_to :follower, class_name: "User"
-
+- has_one :evaluation
+- has_one :purchase_history
 
 
 # Evaluations Table
