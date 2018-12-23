@@ -125,7 +125,7 @@
 
 
 
-#likes
+# likes
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, unique: true|
@@ -155,6 +155,6 @@ Column|Type|Options|
 |parent|reference|foreign_key: true|
 |name|string|null: false|
 
-##Association
+## Association
 - has_many :children, class_name: "Category",foregin_key: "parent_id"
 - belongs_to :parent, class_name: "Category"
