@@ -22,6 +22,7 @@
 - has_one :payment
 - has_many :likes
 - has_many :items
+- has_many :item_comments
 - has_many :relationships, class_name: "Relationship", foregin_key: "follower_id", dependent: :destroy
 
 
@@ -103,7 +104,6 @@
 |area|integer|null: false|
 |price|string|null: false|
 |size|string|null: false|
-|category_id|integer|null: false, index: true|
 |user|reference|null: faluse,foreign_key: true|
 
 ## Association
@@ -118,11 +118,13 @@
 # item_comments
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, unique: true|
-|item_id|integer|null: false, unique: true|
+|user_id|reference|null: false, unique: true,foreign_key: true|
+|item_id|reference|null: false, unique: true,foreign_key: true|
+|comment|text||
 
 ## Association
 - belongs_to :item
+- belongs_to :user
 
 
 
@@ -141,8 +143,8 @@
 # item_categories
 Column|Type|Options|
 |------|----|-------|
-|category_id|integer|null: false, unique: true|
-|item_id|integure|null: false, unique: true|
+|category_id|reference|null: false, unique: true,foreign_key: true|
+|item_id|reference|null: false, unique: true,foreign_key: true|
 
 ## Association
 - belongs_to :item
