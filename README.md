@@ -22,7 +22,8 @@
 - has_one :payment
 - has_many :likes
 - has_many :items
-- has_many :evaluations, class_name: "Evaluation", foregin_key: "reviewed_id", dependent: :destroy
+- has_many :relationships, class_name: "Relationship", foregin_key: "follower_id", dependent: :destroy
+
 
 # Identification Table
 |Column|Type|Options|
@@ -41,6 +42,8 @@
 ## Association
 - belongs_to :user
 
+
+
 # Payment Table
 |Column|Type|Options|
 |------|----|-------|
@@ -53,16 +56,40 @@
 ## Association
 - belongs_to :user
 
+
+# Relationships Table(use gem)
+|Column|Type|Options|
+|------|----|-------|
+|follower_id|integer|null: false, index: true|
+|following_id|integer|null: false, index: true|
+
+## Association
+- belongs_to :follower, class_name: "User"
+
+
+
 # Evaluations Table
 |Column|Type|Options|
 |------|----|-------|
 |mark|integer|null: false|
-|reviewed_id|integer|null: false, index: true|
-|reviewing_id|integer|null: false, index: true|
+|relationship_id|reference|null: false, index: true, foreign_key: true|
 |comment|text||
 
 ## Association
-- belongs_to :reviewing, class_name: "User"
+- belongs_to :relationship
+
+
+
+# Purchase_histories Table
+|Column|Type|Options|
+|------|----|-------|
+|relationship_id|reference|null: false, index: true, foreign_key: true|
+|item|reference|null: false, index: true, foreign_key: true|
+
+## Association
+- belongs_to :relationship
+
+
 
 
 # Items Table
@@ -85,6 +112,8 @@
 - has_many :item_categories
 - has_many :categories, through: :item_categories
 
+
+
 # item_comments
 |Column|Type|Options|
 |------|----|-------|
@@ -93,6 +122,8 @@
 
 ## Association
 - belongs_to :item
+
+
 
 #likes
 |Column|Type|Options|
@@ -104,6 +135,8 @@
 - belongs_to :user
 - belongs_to :item
 
+
+
 # item_categories
 Column|Type|Options|
 |------|----|-------|
@@ -113,6 +146,8 @@ Column|Type|Options|
 ## Association
 - belongs_to :item
 - belongs_to :category
+
+
 
 # categories Table
 Column|Type|Options|
