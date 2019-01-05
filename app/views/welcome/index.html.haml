@@ -1,0 +1,146 @@
+.header
+  .header__inner
+    .header__search
+      %img.header__search__icon{src: "/images/mercari_logo.png"}
+      %form
+        %i.fa.fa-search
+        %input.header__search__input{value: "キーワードから探す"}
+    .header__nav
+      .header__nav__left-side
+        %a.link-category
+          カテゴリーから探す
+        %a.link-brand
+          ブランドから探す
+      .header__nav__right-side
+        %a.header__nav__right-side__sign-in.float-right.button
+          ログイン
+        %a.header__nav__right-side__sign-up.float-right.button
+          新規会員登録
+.main
+  .main__top
+    %a
+  .main__item
+    %h2.main__item-title
+      出品リスト
+    .main__item-container
+      %h3.main__item-container__text
+        %a
+          新着アイテム
+      .main__item-container__content
+        - 4.times do |i|
+          = render 'welcome/item'
+      .main__item-container__view-all
+        %a{}
+          全ての商品を見る
+.app__barnner
+  .app__barnner--pc
+    .app__barnner--pc__left-side
+      .app__barnner--pc__left-side__text
+        %h2
+          スマホでかんたんフリマアプリ
+        %p.app__barnner--pc__left-side__text--strong
+          今すぐ無料ダウンロード！
+      .app__barnner--pc__left-side__buttons
+        %img.mercari-icon.float-left{src: "/images/mercari_box.png"}
+        %ul.float-left
+          %li.app-store
+            %a{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8", target: "_blank"}
+              %img{src: "/images/apple-store-badge.svg"}
+          %li.google-play
+            %a{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja", target: "_blank"}
+              %img{src: "/images/google-play-badge.png"}
+    %img.app__barnner--pc__right-side{src: "/images/app_right.png"}
+.footer
+  .footer__leads
+    %ul.footer__leads__lead
+      %li.footer__leads__lead__title
+        %h2
+          メルカリについて
+        %ul
+          %li.footer__leads__lead__list
+            会社概要(運営会社)
+          %li.footer__leads__lead__list
+            プライバシーポリシー
+          %li.footer__leads__lead__list
+            メルカリ利用規約
+          %li.footer__leads__lead__list
+            メルカリ利用規約・有償ポイントに関する利用規約
+          %li.footer__leads__lead__list
+            あんしんスマホサポート制度に関する利用規約
+          %li.footer__leads__lead__list
+            コンプライアンスポリシー
+          %li.footer__leads__lead__list
+            個人データの安全管理に係る基本方針
+          %li.footer__leads__lead__list
+            特定商取引に関する表記
+          %li.footer__leads__lead__list
+            資金決済法に基づく表記
+          %li.footer__leads__lead__list
+            法令順守と犯罪防止のために
+          %li.footer__leads__lead__list
+            採用情報
+    %ul.footer__leads__lead
+      %li.footer__leads__lead__title
+        %h2
+          メルカリをみる
+        %ul
+          %li.footer__leads__lead__list
+            カテゴリー一覧
+          %li.footer__leads__lead__list
+            ブランド一覧
+          %li.footer__leads__lead__list
+            出品地域一覧
+          %li.footer__leads__lead__list
+            公式ブログ
+          %li.footer__leads__lead__list
+            公式Twitter
+          %li.footer__leads__lead__list
+            公式Facebook
+    %ul.footer__leads__lead
+      %li.footer__leads__lead__title
+        %h2
+          ヘルプ&amp;ガイド
+        %ul
+          %li.footer__leads__lead__list
+            メルカリガイド
+          %li.footer__leads__lead__list
+            メルカリロゴ利用ガイドライン
+          %li.footer__leads__lead__list
+            お知らせ
+          %li.footer__leads__lead__list
+            らくらくメルカリ便とは
+          %li.footer__leads__lead__list
+            ゆうゆうメルカリ便とは
+          %li.footer__leads__lead__list
+            大型らくらくメルカリ便とは
+          %li.footer__leads__lead__list
+            車体取引ガイド
+          %li.footer__leads__lead__list
+            返品・返金ポリシー
+          %li.footer__leads__lead__list
+            メルカリあんしん・あんぜん宣言！
+          %li.footer__leads__lead__list
+            偽ブランド品撲滅への取り組み
+          %li.footer__leads__lead__list
+            メルカリボックス
+    %ul.footer__leads__lead
+      %li.footer__leads__lead__title
+        %h2
+          国
+        %ul
+          %li.footer__leads__lead__list
+            United State
+          %li.footer__leads__lead__list
+            United Kingdom
+          %li.footer__leads__lead__list
+            日本
+  .footer__icon
+    %a
+      %img.mercari-logo{src: "/images/mercari_logo_black.png"}
+    %p &copy; 2018 Ono
+%a.sell-icon
+  %div
+    出品
+  %i.fa.fa-camera.fa-3x
+
+

@@ -1,3 +1,334 @@
+<<<<<<< HEAD
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+=======
+h2 {
+  margin:0 auto;
+  font-size:1.8rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  padding-top:8px;
+
+  &__inner {
+    width: 1020px;
+    margin: 0 auto;
+  }
+
+  &__search {
+    height:36px;
+    position: relative;
+
+    form {
+      width: 870px;
+      float: right;
+    }
+
+    &__icon {
+    width: 134px;
+    height:36px;
+   }
+
+   i {
+    float: right;
+    width: 36px;
+    position: absolute;
+    right: 0;
+    height: 36px;
+    text-align: center;
+    z-index: 10;
+    line-height: 36px;
+   }
+
+   &__input {
+    width: calc(100% - 40px);
+    height: 16px;
+    padding:9px 32px 9px 8px;
+    border: 1px solid;
+    position: relative;
+    top: 0;
+    background: #fafafa;
+    border: 1px solid #ccc;
+   }
+
+  }
+
+  &__nav{
+    margin-top: 8px;
+    height: 38px;
+
+    &__left-side {
+      float: left;
+
+      a {
+        line-height: 32px;
+        font-size:0.8rem;
+      }
+
+      .link-brand {
+        padding-left:16px;
+      }
+    }
+
+    &__right-side {
+      float:right;
+
+      a {
+        padding:1px 10px;
+      }
+
+
+      &__sign-in {
+        width: 56px;
+        border:1px solid orange;
+        background-color:red;
+        color:#fff;
+      }
+
+      &__sign-up {
+        width: 84px;
+        border: 1px solid #3399ff;
+        color: #3399ff;
+      }
+    }
+  }
+}
+.button {
+  height:26px;
+  line-height: 26px;
+  display:inline-block;
+  border-radius:4px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size:0.8rem;
+  text-align: center;
+}
+.main {
+  background-color: #f5f5f5;
+
+  &__top {
+    height:390px;
+    width:100%;
+    background-image: url('/images/head.png');
+
+  }
+
+  &__item {
+    padding:40px 0;
+
+    &-title {
+      text-align: center;
+    }
+
+    &-container {
+      margin: 0 auto;
+      width: 940px;
+
+      &__text {
+        font-size: 22px;
+        color: #3399ff;
+        text-align: center;
+      }
+
+      &__view-all {
+        padding: 20px 0 30px;
+        width: 99.5%;
+        clear: both;
+        height: 14px;
+        a {
+          color: #3399ff;
+          font-size: 14px;
+
+          float: right;
+        }
+      }
+    }
+  }
+}
+.app__barnner {
+  // background-image: url();
+  height: 260px;
+  width: 100%;
+  // background-image: url('/images/app.png');
+
+  &--pc {
+    margin:0 auto;
+    position: relative;
+    height: 260px;
+    width: 750px;
+
+
+    &__left-side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      height: 166px;
+      width: 420px;
+      margin: auto 0;
+
+      &__text {
+        h2 {
+          font-size: 24px;
+        }
+
+        &--strong {
+          font-size: 35px;
+          margin: 10px 0 0 0;
+        }
+      }
+
+      &__buttons {
+        margin: 20px 0 0;
+        height: 68px;
+
+        .mercari-icon {
+          height: 68px;
+          width: 68px;
+        }
+
+        ul {
+          margin: 0;
+          padding-left: 0;
+          margin-left:24px;
+
+          .app-store > a > img {
+              height: 40px;
+            }
+
+          li {
+            width: 133px;
+            height: 68px;
+            margin-right: 0;
+            display: inline-block;
+            float: left;
+
+            a {
+
+              display: block;
+              line-height: 68px;
+
+              img {
+                height: 58px;
+                width: 133px;
+                vertical-align: middle;
+              }
+
+            }
+          }
+
+          li:last-child {
+            margin-left: 24px;
+          }
+
+
+        }
+      }
+    }
+
+    &__right-side {
+      height: 260px;
+      width: 300px;
+      float: right;
+    }
+  }
+}
+.footer {
+  padding: 60px 0;
+  height: 497px;
+  clear:both;
+  background: #222222;
+  color: #fff;
+
+  &__leads {
+    width: 1020px;
+    height: 402px;
+    margin: 0 auto;
+
+    &__lead {
+      float:left;
+      padding-left: 0;
+      width: 23%;
+      margin-right: 2%;
+
+      li {
+        text-align: center;
+        margin-top: 16px;
+
+        ul > li {
+          margin-top: 16px;
+          font-size: 14px;
+        }
+
+        ul > li:first-child {
+          margin-top: 24px;
+        }
+      }
+      li:first-child {
+          margin-top: 0;
+        }
+
+      li > h2 {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__icon {
+    clear:both;
+
+    a {
+      width: 100%;
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+
+      img {
+        height: 33px;
+        width: 123px;
+        margin: 0 auto;
+      }
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+.sell-icon {
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  z-index: 1000;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+
+  div {
+    font-size:22px;
+    margin: 32px 0 0;
+  }
+
+  i {
+    margin: 8px 0 0;
+    height: 54px;
+  }
+}
+.float-left {
+  float: left;
+}
+
+>>>>>>> ono0satoshi/create-toppage
