@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
 <<<<<<< HEAD
+<<<<<<< HEAD
   # before_action :basic_auth, if: :production?
   # protect_from_forgery with: :exception
 =======
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 >>>>>>> ono0satoshi/create-toppage
+=======
+  before_action :basic_auth, if: :production?
+  protect_from_forgery with: :exception
+>>>>>>> ono0satoshi/master
 
   private
 
