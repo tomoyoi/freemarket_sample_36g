@@ -1,0 +1,115 @@
+.devise-header {
+  width:100%;
+  text-align: center;
+  padding: 4% 0;
+
+  &__h1 {
+    margin:0;
+
+    a {
+      display: inline-block;
+      margin:0 auto;
+
+    }
+  }
+}
+
+.main {
+
+  section {
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    h2 {
+      height: 24px;
+      padding:5% 8px;
+      font-size: 1.5rem;
+    }
+  }
+  .inner {
+    border-top: 1px solid #f5f5f5;
+    padding: 60px;
+
+    .content {
+      width: 320px;
+      margin: 0 auto;
+
+      .btn {
+        line-height: 48px;
+        width: 318px;
+        display: block;
+        border: 1px solid transparent;
+        position: relative;
+        font-size: 14px;
+
+        i {
+          position: absolute;
+          top:25%;
+          left:16px;
+          font-size: 1.5rem;
+        }
+      }
+
+      button {
+          margin-top:16px;
+        }
+
+      a {
+        background: #eee;
+      }
+
+      .facebook {
+        background: #385185;
+        color: #fff;
+      }
+
+      .google {
+        background: #dc4e41;
+        color: #fff;
+      }
+
+    }
+
+  }
+}
+
+.devise-footer {
+  background:#f5f5f5;
+  color:#333;
+  z-index: 1;
+  width: 100%;
+  padding: 40px 0;
+  text-align: center;
+
+  nav {
+
+    ul {
+      text-align: center;
+      :first-child {
+        margin:0;
+      }
+      li {
+        :first-child {
+          margin-top: 0;
+        }
+        margin-top: 12px;
+        font-size:12px;
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin: 40px auto 0;
+
+    img {
+      width: 80px;
+      height: 65px;
+    }
+  }
+
+  p {
+      margin: 8px 0 0;
+  }
+}
