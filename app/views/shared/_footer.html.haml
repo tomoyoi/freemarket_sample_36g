@@ -1,43 +1,3 @@
-= render partial: "/shared/header"
-.main
-  .main__top
-    %a
-  .main__item
-    %h2.main__item-title
-      出品リスト
-    .main__item-container
-      %h3.main__item-container__text
-        %a
-          新着アイテム
-      .main__item-container__content
-        - 4.times do |i|
-          = render 'welcome/item'
-      .main__item-container__view-all
-        %a{}
-          全ての商品を見る
-<<<<<<< HEAD
-.app__barnner
-  .app__barnner--pc
-    .app__barnner--pc__left-side
-      .app__barnner--pc__left-side__text
-        %h2
-          スマホでかんたんフリマアプリ
-        %p.app__barnner--pc__left-side__text--strong
-          今すぐ無料ダウンロード！
-      .app__barnner--pc__left-side__buttons
-        %img.mercari-icon.float-left{src: "/images/mercari_box.png"}
-          -#
-        %ul.float-left
-          %li.app-store
-            %a{href: "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8", target: "_blank"}
-              %img{src: "/images/apple-store-badge.svg"}
-                -#
-          %li.google-play
-            %a{href: "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja", target: "_blank"}
-              %img{src: "/images/google-play-badge.png"}
-                -#
-    %img.app__barnner--pc__right-side{src: "/images/app_right.png"}
-      -#
 .footer
   .footer__leads
     %ul.footer__leads__lead
@@ -125,13 +85,8 @@
   .footer__icon
     %a
       %img.mercari-logo{src: "/images/mercari_logo_black.png"}
-        -#
     %p &copy; 2018 Ono
 %a.sell-icon
   %div
     出品
   %i.fa.fa-camera.fa-3x
-=======
-= render partial: "/shared/banner"
-= render partial: "/shared/footer"
->>>>>>> ono0satoshi/master
