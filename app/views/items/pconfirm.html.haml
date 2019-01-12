@@ -1,0 +1,87 @@
+.single-container
+  = render 'header'
+
+  %main.single-main
+    %section.l-single-container
+      .sell-container
+        .sell-container-inner
+          %h2.l-single-head 購入を確定しますか？
+        / 購入商品
+        .buy-contents
+          .buy-content-inner
+            %h3.buy-item-image
+              = image_tag('m74375986154_1.jpg', size: '148x148', alt:'picture')
+            %p.buy-item-name
+              UNIQLO フレアスカート
+            %form.buy-form
+              = form_for :form do |f|
+                %p.buy-price
+                  ¥700
+                  %span.item-shipping-fee
+                    送料込み
+              %ul.buy-accordion
+                %li.accordion-parent
+                  .accordion-toggle
+                    ポイントを使う
+                    %i.fa.fa-angle-down
+                    / =fa_icon 'fa-angle-down', class: 'accordion-bottom'
+                  %ul.accordion-child
+                    %li.bold
+                      所持ポイント：P 500
+                    %li.form.group
+                      .radio-default
+                        %label
+                          %input{:type => "radio", :name => "consume_point_radio"}
+                            ポイントを使わない
+                          %br
+                          %input{:type => "radio", :name => "consume_point_radio", :value => "all"}
+                          %input{:type => "hidden",:value => "500"}
+                            全てのポイントを使う
+                            P 500
+                          %br
+                          %input{:type => "radio", :name => "consume_point_radio", :value => "partial"}
+                            一部のポイントを使う
+                          %br
+                          %input{:type => "number", :class => "input-default", :placeholder => "使うポイントを入力"}
+                          %input{:type => "hidden", :name => "consume_point", :value => "0"}
+              %ul.buy-price-table
+                %li.buy-price-row.buy-you-pay
+                  .buy-price-cell
+                    支払い金額
+                  .buy-price-cell
+                    %span.data-buy-pay
+                      ¥600
+              %button.btn-default.btn-red.bold
+                = form_for :form do |f|
+                  = f.submit "購入する", class: "btn-red"
+
+        / 配送先
+        .buy-contents
+          .buy-content-inner
+            %h3.buy-form-title
+              配送先
+            %address.buy-user-info-text
+              〒000-0000
+              %br 東京都中央区銀座1丁目
+              太郎 花子
+            %span.buy-user-info-fix
+              =link_to "#" do
+                変更する
+                %i.icon-arrow-right >
+        / 支払い方法
+        .buy-contents
+          .buy-content-inner
+            %h3.buy-form-title
+              支払い方法
+            %p.buy-user-info-text
+              ************2743
+              %br 02 / 19
+              %figure
+                = image_tag('visa.svg', size: '49x15', alt:'VISA')
+            %span.buy-user-info-fix
+              =link_to "#" do
+                変更する
+                %i.icon-arrow-right >
+
+  %footer.single-footer
+    = render 'footer'
