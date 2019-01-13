@@ -1,23 +1,23 @@
-.devise-header
-  %h1.devise-header__logo-wrap
+.default-header
+  %h1.default-header__logo-wrap
     %a
       %img{src: "/images/mercari_logo.svg", style: "height:50px;width:60%"}
 .main
-  %section.container
+  %section.signup-container
     %h2
       新規会員登録
-    .inner
+    .inner.signup-container__inner
       .content
-        %a.mail-signup.btn
+        %a.mail-signup.default-btn
           %i.fa.fa-envelope
           メールアドレスで登録
-        %button.btn.facebook
+        %button.default-btn.facebook
           %i.fa.fa-facebook-square
           Facebookで登録
-        %button.btn.google
+        %button.default-btn.google
           %i.fa.fa-google-plus
           Googleで登録
-.devise-footer
+.default-footer
   %nav
     %ul
       %li
