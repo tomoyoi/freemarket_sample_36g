@@ -1,18 +1,18 @@
 = render partial: "/shared/header"
-.main
-  .main__top
+.top-main
+  .top-main__top
     %a
-  .main__item
-    %h2.main__item-title
+  .top-main__item
+    %h2.top-main__item-title
       出品リスト
-    .main__item-container
-      %h3.main__item-container__text
+    .top-main__item-container
+      %h3.top-main__item-container__text
         %a
           新着アイテム
-      .main__item-container__content
+      .top-main__item-container__content
         - 4.times do |i|
           = render 'welcome/item'
-      .main__item-container__view-all
+      .top-main__item-container__view-all
         %a{}
           全ての商品を見る
 = render partial: "/shared/banner"
