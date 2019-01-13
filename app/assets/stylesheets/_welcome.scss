@@ -11,7 +11,7 @@ ul {
 
 .header {
   padding-top:8px;
-  background-color: white;
+  background: #fff;
 
   &__inner {
     width: 1020px;
@@ -106,13 +106,18 @@ ul {
   font-size:0.8rem;
   text-align: center;
 }
-.main {
-  background-color: #f5f5f5;
+.top-main {
 
   &__top {
     height:390px;
     width:100%;
-    background-image: url('/images/head.png');
+
+    a {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-image: url('/images/head.png');
+    }
 
   }
 
@@ -131,6 +136,7 @@ ul {
         font-size: 22px;
         color: #3399ff;
         text-align: center;
+        margin: 26px 11px;
       }
 
       &__view-all {
@@ -325,4 +331,3 @@ ul {
 .float-left {
   float: left;
 }
-
