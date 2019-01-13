@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'static_pages/complite'
   get 'users/mypage'
   get 'users/payment'
+  get 'users/profile'
+  get 'users/mypage-edit'
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
