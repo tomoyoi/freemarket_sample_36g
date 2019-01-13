@@ -11,7 +11,7 @@ ul {
 
 .header {
   padding-top:8px;
-  background-color: white;
+  background: #fff;
 
   &__inner {
     width: 1020px;
@@ -112,7 +112,13 @@ ul {
   &__top {
     height:390px;
     width:100%;
-    background-image: url('/images/head.png');
+
+    a {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      background-image: url('/images/head.png');
+    }
 
   }
 
