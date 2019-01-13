@@ -1,4 +1,4 @@
-.devise-header {
+.default-header {
   width:100%;
   text-align: center;
   padding: 4% 0;
@@ -13,12 +13,22 @@
     }
   }
 }
+// あとでリファクタリングが必要です！！
+.signup-container {
+  width: 700px;
+
+  &__inner {
+    padding: 60px;
+
+    .content {
+      margin: 0 auto;
+    }
+  }
+}
 
 .main {
-
   section {
     text-align: center;
-    width: 700px;
     margin: 0 auto;
     background: #fff;
     h2 {
@@ -29,27 +39,9 @@
   }
   .inner {
     border-top: 1px solid #f5f5f5;
-    padding: 60px;
 
     .content {
       width: 320px;
-      margin: 0 auto;
-
-      .btn {
-        line-height: 48px;
-        width: 318px;
-        display: block;
-        border: 1px solid transparent;
-        position: relative;
-        font-size: 14px;
-
-        i {
-          position: absolute;
-          top:25%;
-          left:16px;
-          font-size: 1.5rem;
-        }
-      }
 
       button {
           margin-top:16px;
@@ -73,8 +65,24 @@
 
   }
 }
+//あとでリファクタリング！！
+.default-btn {
+  line-height: 48px;
+  width: 318px;
+  display: block;
+  border: 1px solid transparent;
+  position: relative;
+  font-size: 14px;
 
-.devise-footer {
+  i {
+    position: absolute;
+    top:25%;
+    left:16px;
+    font-size: 1.5rem;
+  }
+}
+
+.default-footer {
   background:#f5f5f5;
   color:#333;
   z-index: 1;
@@ -82,22 +90,22 @@
   padding: 40px 0;
   text-align: center;
 
-  nav {
+nav {
 
-    ul {
-      text-align: center;
+  ul {
+    text-align: center;
+    :first-child {
+      margin:0;
+    }
+    li {
       :first-child {
-        margin:0;
+        margin-top: 0;
       }
-      li {
-        :first-child {
-          margin-top: 0;
-        }
-        margin-top: 12px;
-        font-size:12px;
-      }
+      margin-top: 12px;
+      font-size:12px;
     }
   }
+}
 
   a {
     display: inline-block;
