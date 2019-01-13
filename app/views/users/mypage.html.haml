@@ -1,4 +1,8 @@
 = render partial: "/shared/header"
-= render partial: "/shared/side-list"
-/ = render partial: "/shared/banner"
+.main.clearfix
+  .main__content
+    = render partial: "/shared/side-list"
+    = render partial: "/shared/profile-edit"
+= render partial: "/shared/banner"
 = render partial: "/shared/footer"
+
