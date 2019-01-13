@@ -1,0 +1,27 @@
+= render 'shared/default-header'
+.main
+  %section.container.login-container
+    .login-no-account
+      %p
+        アカウントをお持ちでない方はこちら
+      %a
+        新規会員登録
+    .inner.login-container__inner
+      .content
+        %button.default-btn.facebook
+          %i.fa.fa-facebook-square
+          Facebookで登録
+        %button.default-btn.google
+          %i.fa.fa-google-plus
+          Googleで登録
+      %form
+        .form-inner
+          .form-group
+            %input{type: "email",class: "input-default",placeholder: "メールアドレス"}
+          .form-group
+            %input{type: "password",class: "input-default",placeholder: "パスワード"}
+          %button.default-btn.btn-red
+            ログイン
+          %a
+            パスワードをお忘れの方
+= render "shared/default-footer"
