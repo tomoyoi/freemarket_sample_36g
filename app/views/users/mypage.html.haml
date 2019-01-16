@@ -2,7 +2,24 @@
 .main.clearfix
   .main__content
     = render partial: "/shared/side-list"
-    = render partial: "/shared/profile-edit"
+    .mypage-content
+      .mypage-icon
+        %img{class: "icon"}
+        %p momo
+      .evaluation
+        %p 評価　35
+        %p 出品数　50
+      .mypage-notification
+        .notification-box
+          .notice お知らせ
+          .todolist やることリスト
+        %button{type: "submit", class: "btn"} 一覧を見る
+
+.hostory-content
+  .mypage-header 購入した商品
+    .soldproduct-box
+      .going-on 取引中
+      .donelist 過去の取引
 = render partial: "/shared/banner"
 = render partial: "/shared/footer"
 
