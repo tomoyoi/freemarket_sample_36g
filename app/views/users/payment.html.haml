@@ -1,0 +1,18 @@
+= render partial: "/shared/header"
+.main.clearfix
+  .main__content
+    = render partial: "/shared/side-list"
+    .payment-content
+      .payment-chapter-head
+        %h2 支払い方法
+        .payment-main
+          .single-innter
+            %h3 クレジットカード一覧
+          .settings-add-card
+            .single-content
+              %a{class: "payment-btn"}
+                %i.icon-card クレジットカードを追加する
+          %a{} 支払い方法について
+          .arrow-right
+= render partial: "/shared/banner"
+= render partial: "/shared/footer"
