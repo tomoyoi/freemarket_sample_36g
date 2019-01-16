@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   get 'static_pages/deliver_address'
   get 'static_pages/payment'
   get 'static_pages/complite'
-<<<<<<< HEAD
-  get 'users/payment'
-  root 'welcome#index'
-=======
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
@@ -17,5 +13,4 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
->>>>>>> ono0satoshi/master
 end
