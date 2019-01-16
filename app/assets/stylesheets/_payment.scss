@@ -13,7 +13,10 @@
     }
     .payment-main {
       padding: 64px;
+<<<<<<< HEAD
       border-bottom: 1px solid #f5f5f5;
+=======
+>>>>>>> ono0satoshi/master
       height: 180px;
       .single-innter {
         max-width: 320px;
@@ -43,6 +46,7 @@
             line-height: 48px;
             font-size: 14px;
             text-align: center;
+<<<<<<< HEAD
             .icon-card {
               margin-right: 16px;
               font-family: 'icon-font';
@@ -60,10 +64,46 @@
         transform: rotate(45deg);
         float: right;
         position: relative;
+=======
+            i {
+              margin-right: 16px;
+            }
+          }
+        }
+      }
+      .settings-not-regist {
+          width: 572px;
+          height: 17px;
+          margin-top: 40px;
+          display: inline-block;
+        a {
+          color: #0099e8;
+          text-decoration: none;
+          display: inline-block;
+          text-align: right;
+          float: right;
+        }
+        .arrow-right {
+          margin: 3px 0 0 8px;
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border-top: solid 2px #0099e8;
+          border-right: solid 2px #0099e8;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          font-family: 'icon-font';
+          float: right;
+          vertical-align: middle;
+        }
+>>>>>>> ono0satoshi/master
       }
     }
   }
 }
+<<<<<<< HEAD
   }
 }
+=======
+>>>>>>> ono0satoshi/master
 

@@ -106,8 +106,7 @@ ul {
   font-size:0.8rem;
   text-align: center;
 }
-.main {
-  background-color: #f5f5f5;
+.top-main {
 
   &__top {
     height:390px;
@@ -137,6 +136,7 @@ ul {
         font-size: 22px;
         color: #3399ff;
         text-align: center;
+        margin: 26px 11px;
       }
 
       &__view-all {
@@ -331,4 +331,3 @@ ul {
 .float-left {
   float: left;
 }
-
