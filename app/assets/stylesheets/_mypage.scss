@@ -1,0 +1,252 @@
+.mypage-content {
+  float: right;
+  width: 700px;
+  .mypage-icon {
+    height: 160px;
+    padding: 20px;
+    background: url(/images/mypage-icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    position: relative;
+    a {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      color: #333;
+      text-decoration: none;
+      img {
+        vertical-align: middle;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: url(/images/user-icon.png);
+      }
+      h2 {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .mypage-number {
+        margin: 8px 0 0;
+        font-size: 0;
+        .evaluation {
+          display: inline-block;
+          font-size: 14px;
+        }
+        .number {
+          display: inline-block;
+          margin: 0 0 0 8px;
+          font-size: 16px;
+        }
+        .exhibits-number {
+          display: inline-block;
+          font-size: 14px;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+  .mypage-tab-container-notification-todo {
+    margin: 0;
+    background: #fff;
+    .active {
+        content: "";
+        background: #fff;
+        width: 50%;
+        height: 74px;
+        line-height: 74px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        h3 {
+          font-size: 16px;
+          display: block;
+          font-weight: bold;
+        }
+        a {
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+      }
+    .inactive {
+        content: "";
+        background: #eee;
+        width: 50%;
+        height: 74px;
+        line-height: 74px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        h3 {
+          font-size: 16px;
+          display: block;
+          font-weight: bold;
+        }
+        a {
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+      }
+    .tab_content {
+      display: block;
+      clear: both;
+      overflow: hidden;
+      .mypage-item-list {
+        display: block;
+        list-style: none;
+        .mypage-item-link {
+          display: block;
+          padding: 16px;
+          color: #333;
+          text-decoration: none;
+          width: 668px;
+          height: 48px;
+          position: relative;
+          border-bottom: 1px solid #eee;
+          img {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 48px;
+            height: 48px;
+            background: url(/images/mercari_profile.png)
+          }
+          .mypage-item-body {
+            margin: 0 20px;
+            width: 560px;
+            height: 24px;
+            display: inline-block;
+            position: absolute;
+            .mypage-item-text {
+              overflow: hidden;
+              display: block;
+              display: -webkit-box;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+            }
+          }
+          .fa-clock-o {
+            margin: 0 8px 0 20px;
+          }
+          .time {
+            vertical-align: middle;
+            display: inline-block;
+          }
+          .icon-arrow-right {
+            margin: 20px 0 0 8px;
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-top: solid 2px #333;
+            border-right: solid 2px #333;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            font-family: 'icon-font';
+            float: right;
+            vertical-align: middle;
+          }
+        }
+        .mypage-go-list {
+          border-bottom: 1px solid #eee;
+          padding: 16px;
+          width: 668px;
+          height: 56px;
+          display: block;
+          a {
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  .mypage-tab-container {
+    margin: 40px 0 0;
+    background: #fff;
+    h2 {
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      padding: 0 16px;
+    }
+    .mypage-tabs {
+      border: 0;
+      background: #eee;
+      font-size: 0;
+      .active {
+        background: #fff;
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        width: 50%;
+        height: 74px;
+        h3 {
+          font-size: 16px;
+          display: block;
+          margin-block-start: 2em;
+          font-weight: bold;
+        }
+        a {
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+      }
+      .inactive {
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        width: 50%;
+        height: 74px;
+        h3 {
+          font-size: 16px;
+          display: block;
+          margin-block-start: 2em;
+          font-weight: bold;
+        }
+        a {
+          display: block;
+          color: #333;
+          font-size: 16px;
+          line-height: 72px;
+        }
+      }
+      .mypage-go-list {
+        width: 700px;
+        height: 236px;
+        background: #fff;
+        display: block;
+      }
+    }
+  }
+}
+

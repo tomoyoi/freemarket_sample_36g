@@ -4,22 +4,52 @@
     = render partial: "/shared/side-list"
     .mypage-content
       .mypage-icon
-        %img{class: "icon"}
-        %p momo
-      .evaluation
-        %p 評価　35
-        %p 出品数　50
-      .mypage-notification
-        .notification-box
-          .notice お知らせ
-          .todolist やることリスト
-        %button{type: "submit", class: "btn"} 一覧を見る
-
-.hostory-content
-  .mypage-header 購入した商品
-    .soldproduct-box
-      .going-on 取引中
-      .donelist 過去の取引
+        %a{href: "#"}
+          %img
+          %h2 Momo
+          .mypage-number
+            .evaluation 評価
+            .number 35
+            .exhibits-number 出品数
+            .number 50
+      .mypage-tab-container-notification-todo
+        .active
+          %h3
+          %a{herf: "#"} お知らせ
+        .inactive
+          %h3
+          %a{herf: "#"} やることリスト
+        .tab_content
+          .mypage-item-list
+            %li.mypage-item-link
+              %a
+                %img
+                .mypage-item-body
+                  .mypage-item-text 振込申請が完了しました
+                %i.fa.fa-clock-o
+                .time 21時間前
+                .icon-arrow-right
+            %li.mypage-item-link
+              %a
+                %img
+                .mypage-item-body
+                  .mypage-item-text あなた、他３人が「スチームミルク」にコメントしました。
+                .i.fa.fa-clock-o
+                .time 3時間前
+                .icon-arrow-right
+            %il.mypage-go-list
+              %a 一覧を見る
+      .mypage-tab-container
+        %h2 購入した商品
+        %ul.mypage-tabs
+          %il.active
+            %h3 取引中
+            %a
+          %il.inactive
+            %h3 過去の取引
+            %a
+          %il.mypage-go-list
+            %a 一覧を見る
 = render partial: "/shared/banner"
 = render partial: "/shared/footer"
 
