@@ -1,7 +1,7 @@
 .mypage-content {
   float: right;
   width: 700px;
-  .mypage-icon {
+  &__mypage-icon {
     height: 160px;
     padding: 20px;
     background: url(/images/mypage-icon.png);
@@ -52,7 +52,7 @@
       }
     }
   }
-  .mypage-tab-container-notification-todo {
+  &__mypage-tab-container-notification-todo {
     margin: 0;
     background: #fff;
     .active {
@@ -188,7 +188,7 @@
       }
     }
   }
-  .mypage-tab-container {
+  &__mypage-tab-container {
     margin: 40px 0 0;
     background: #fff;
     h2 {

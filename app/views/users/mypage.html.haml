@@ -3,7 +3,7 @@
   .main__content
     = render partial: "/shared/side-list"
     .mypage-content
-      .mypage-icon
+      .mypage-content__mypage-icon
         %a{href: "#"}
           %img
           %h2 Momo
@@ -12,7 +12,7 @@
             .number 35
             .exhibits-number 出品数
             .number 50
-      .mypage-tab-container-notification-todo
+      .mypage-content__mypage-tab-container-notification-todo
         .active
           %h3
           %a{herf: "#"} お知らせ
@@ -21,16 +21,16 @@
           %a{herf: "#"} やることリスト
         .tab_content
           .mypage-item-list
-            %li.mypage-item-link
-              %a
+            %li
+              %a.mypage-item-link
                 %img
                 .mypage-item-body
                   .mypage-item-text 振込申請が完了しました
                 %i.fa.fa-clock-o
                 .time 21時間前
                 .icon-arrow-right
-            %li.mypage-item-link
-              %a
+            %li
+              %a.mypage-item-link
                 %img
                 .mypage-item-body
                   .mypage-item-text あなた、他３人が「スチームミルク」にコメントしました。
@@ -39,7 +39,7 @@
                 .icon-arrow-right
             %il.mypage-go-list
               %a 一覧を見る
-      .mypage-tab-container
+      .mypage-content__mypage-tab-container
         %h2 購入した商品
         %ul.mypage-tabs
           %il.active
