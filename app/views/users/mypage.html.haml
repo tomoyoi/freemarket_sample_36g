@@ -3,24 +3,53 @@
   .main__content
     = render partial: "/shared/side-list"
     .mypage-content
-      .mypage-icon
-        %img{class: "icon"}
-        %p momo
-      .evaluation
-        %p 評価　35
-        %p 出品数　50
-      .mypage-notification
-        .notification-box
-          .notice お知らせ
-          .todolist やることリスト
-        %button{type: "submit", class: "btn"} 一覧を見る
-
-.hostory-content
-  .mypage-header
-    購入した商品
-    .soldproduct-box
-      .going-on 取引中
-      .donelist 過去の取引
+      .mypage-content__mypage-icon
+        %a{href: "#"}
+          %img
+          %h2 Momo
+          .mypage-number
+            .evaluation 評価
+            .number 35
+            .exhibits-number 出品数
+            .number 50
+      .mypage-content__container
+        .mypage-content__container__tab-seg-left
+          %h3
+          %a{herf: "#"} お知らせ
+        .mypage-content__container__tab-seg-right
+          %h3
+          %a{herf: "#"} やることリスト
+        .mypage-content__container__tab-container
+          .mypage-content__container__tab-container__item-list
+            %li
+              %a.mypage-content__container__tab-container__item-list__item-link
+                %img
+                .item-body
+                  .item-text 振込申請が完了しました
+                %i.fa.fa-clock-o
+                .time 21時間前
+                .icon-arrow-right
+            %li
+              %a.mypage-content__container__tab-container__item-list__item-link
+                %img
+                .item-body
+                  .item-text あなた、他３人がコメントしました。
+                %i.fa.fa-clock-o
+                .time 3時間前
+                .icon-arrow-right
+            %il.mypage-go-list
+              %a 一覧を見る
+      .mypage-content__mypage-tab-container
+        %h2 購入した商品
+        %ul.mypage-tabs
+          %il.active
+            %h3 取引中
+            %a
+          %il.inactive
+            %h3 過去の取引
+            %a
+          %il.mypage-go-list
+            %a 一覧を見る
 = render partial: "/shared/banner"
 = render partial: "/shared/footer"
 
