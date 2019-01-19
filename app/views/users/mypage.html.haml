@@ -12,29 +12,29 @@
             .number 35
             .exhibits-number 出品数
             .number 50
-      .mypage-content__mypage-tab-container-notification-todo
-        .active
+      .mypage-content__container
+        .mypage-content__container__tab-seg-left
           %h3
           %a{herf: "#"} お知らせ
-        .inactive
+        .mypage-content__container__tab-seg-right
           %h3
           %a{herf: "#"} やることリスト
-        .tab_content
-          .mypage-item-list
+        .mypage-content__container__tab-container
+          .mypage-content__container__tab-container__item-list
             %li
-              %a.mypage-item-link
+              %a.mypage-content__container__tab-container__item-list__item-link
                 %img
-                .mypage-item-body
-                  .mypage-item-text 振込申請が完了しました
+                .item-body
+                  .item-text 振込申請が完了しました
                 %i.fa.fa-clock-o
                 .time 21時間前
                 .icon-arrow-right
             %li
-              %a.mypage-item-link
+              %a.mypage-content__container__tab-container__item-list__item-link
                 %img
-                .mypage-item-body
-                  .mypage-item-text あなた、他３人が「スチームミルク」にコメントしました。
-                .i.fa.fa-clock-o
+                .item-body
+                  .item-text あなた、他３人がコメントしました。
+                %i.fa.fa-clock-o
                 .time 3時間前
                 .icon-arrow-right
             %il.mypage-go-list

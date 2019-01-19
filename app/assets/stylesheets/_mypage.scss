@@ -52,10 +52,10 @@
       }
     }
   }
-  &__mypage-tab-container-notification-todo {
+  &__container {
     margin: 0;
     background: #fff;
-    .active {
+    &__tab-seg-left {
         content: "";
         background: #fff;
         width: 50%;
@@ -80,7 +80,7 @@
           line-height: 72px;
         }
       }
-    .inactive {
+    &__tab-seg-right {
         content: "";
         background: #eee;
         width: 50%;
@@ -105,14 +105,14 @@
           line-height: 72px;
         }
       }
-    .tab_content {
+    &__tab-container {
       display: block;
       clear: both;
       overflow: hidden;
-      .mypage-item-list {
+      &__item-list {
         display: block;
         list-style: none;
-        .mypage-item-link {
+        &__item-link {
           display: block;
           padding: 16px;
           color: #333;
@@ -131,13 +131,13 @@
             height: 48px;
             background: url(/images/mercari_profile.png)
           }
-          .mypage-item-body {
+          .item-body {
             margin: 0 20px;
             width: 560px;
             height: 24px;
             display: inline-block;
             position: absolute;
-            .mypage-item-text {
+            .item-text {
               overflow: hidden;
               display: block;
               display: -webkit-box;
