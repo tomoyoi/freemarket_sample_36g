@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'welcome#index'
   get 'static_pages/signup'
   get 'static_pages/login'
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
+  get 'users/identification'
   get 'users/mypage-edit'
   get 'items/sell'
   get 'items/show'

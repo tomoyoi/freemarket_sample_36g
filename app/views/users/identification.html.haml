@@ -1,0 +1,63 @@
+= render partial: "/shared/header"
+.main.clearfix
+  .main__content
+    = render partial: "/shared/side-list"
+    .identification
+      .identification__chapter-head
+        %h2 本人情報の確認
+        %p お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+      .identification__form-all
+        .identification__form-all__form-seg
+          %label お名前
+          .identification__form-all__form-seg__span 必須
+          %input{ type: "text", placeholder: "例）山田"}
+          %input{placeholder: "例）太郎"}
+        .identification__form-all__form-seg
+          %label お名前カナ
+          .identification__form-all__form-seg__span 必須
+          %input{type: "text", placeholder: "例）ヤマダ"}
+          %input{placeholder: "例）タロウ"}
+        .identification__form-all__form-seg
+          %label 郵便番号
+          .identification__form-all__form-seg__span-option 任意
+          %input{type: "text", placeholder: "例）1234567"}
+        .identification__form-all__form-seg
+          %label 都道府県
+          .identification__form-all__form-seg__span 必須
+          %input
+        .identification__form-all__form-seg
+          %label 市区町村
+          .identification__form-all__form-seg__span 必須
+          %input{type: "text", placeholder: "例）横浜市緑区"}
+        .identification__form-all__form-seg
+          %label 番地
+          .identification__form-all__form-seg__span 必須
+          %input{type: "text", placeholder: "例）青山1-1-1"}
+        .identification__form-all__form-seg
+          %label 建物名
+          .identification__form-all__form-seg__span-option 任意
+          %input{type: "text", placeholder: "例）柳ビル103"}
+        .identification__form-all__form-seg
+          %label 生年月日
+          .identification__form-all__form-seg__span 必須
+          .birthday-select-all-wrap
+            .birthday-select-wrap
+              %input{class: "birthday-select", placeholder: "例）1990"}
+              .span-birth 年
+            .birthday-select-wrap
+              %input{class: "birthday-select", placeholder: "例）1"}
+              .span-birth 月
+            .birthday-select-wrap
+              %input{class: "birthday-select", placeholder: "例）1"}
+              .span-birth 日
+          %p.info-text
+          ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        .identification__form-all__form-seg
+        %button{class: "identification__form-all__btn", type: "submit"}登録する
+        .identification__form-all__text-right
+          %p
+            .box
+              %a 本人情報の登録について
+              .identification__form-all__text-right__icon-right-arrow
+= render partial: "/shared/banner"
+= render partial: "/shared/footer"
