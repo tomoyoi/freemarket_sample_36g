@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_083905) do
+ActiveRecord::Schema.define(version: 2019_01_20_093038) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parent_id"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2019_01_20_083905) do
     t.bigint "user_id"
     t.index ["item_id"], name: "index_images_on_item_id"
     t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
+  create_table "item_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_item_categories_on_category_id"
+    t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
   create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,6 +123,8 @@ ActiveRecord::Schema.define(version: 2019_01_20_083905) do
   add_foreign_key "identifications", "users"
   add_foreign_key "images", "items"
   add_foreign_key "images", "users"
+  add_foreign_key "item_categories", "categories"
+  add_foreign_key "item_categories", "items"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "payments", "users"
