@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_074601) do
+ActiveRecord::Schema.define(version: 2019_01_20_075735) do
 
   create_table "identifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "lastname", null: false
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_01_20_074601) do
     t.bigint "user_id"
     t.index ["item_id"], name: "index_images_on_item_id"
     t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
+  create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_comments_on_item_id"
+    t.index ["user_id"], name: "index_item_comments_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,5 +97,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_074601) do
   add_foreign_key "identifications", "users"
   add_foreign_key "images", "items"
   add_foreign_key "images", "users"
+  add_foreign_key "item_comments", "items"
+  add_foreign_key "item_comments", "users"
   add_foreign_key "payments", "users"
 end
