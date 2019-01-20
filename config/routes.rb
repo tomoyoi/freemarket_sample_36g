@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
+  get 'users/identification'
   get 'users/mypage-edit'
   get 'items/sell'
   get 'items/show'
