@@ -22,8 +22,12 @@
 - has_one :payment
 - has_many :likes
 - has_many :items
-- has_many :item_comments
-- has_many :relationships, class_name: "Relationship", foregin_key: "follower_id", dependent: :destroy
+- has_many :evaluations
+- has_many :commented_evaluations, class_name: 'Evaluation', :foreign_key => 'commented_id'
+- has_many :commenter_evaluations, class_name: 'Evaluation', :foreign_key => 'commenter_id'
+- has_many :buyer_items, class_name: 'Item', :foreign_key => 'buyer_id'
+- has_many :seller_items, class_name: 'Item', :foreign_key => 'seller_id'
+
 
 
 # Identification Table
@@ -58,7 +62,9 @@
 - belongs_to :user
 
 
-# Relationships Table(use gem)
+
+---Pending---Act as Follower
+<!-- # Relationships Table(use gem)
 |Column|Type|Options|
 |------|----|-------|
 |follower_id|integer|null: false, index: true|
@@ -67,30 +73,21 @@
 ## Association
 - belongs_to :follower, class_name: "User"
 - has_one :evaluation
-- has_one :purchase_history
+- has_one :purchase_history -->
+
 
 
 # Evaluations Table
 |Column|Type|Options|
 |------|----|-------|
 |mark|integer|null: false|
-|relationship_id|reference|null: false, index: true, foreign_key: true|
+|commented_id|reference|null: false, index: true, foreign_key: true|
+|commenter_id|reference|null: false, index: true, foreign_key: true|
 |comment|text||
 
 ## Association
-- belongs_to :relationship
-
-
-
-# Purchase_histories Table
-|Column|Type|Options|
-|------|----|-------|
-|relationship_id|reference|null: false, index: true, foreign_key: true|
-|item|reference|null: false, index: true, foreign_key: true|
-
-## Association
-- belongs_to :relationship
-
+-belongs_to :commented, class_name: 'User', :foreign_key => 'commented_id'
+-belongs_to :commenter, class_name: 'User', :foreign_key => 'commenter_id'
 
 
 
@@ -104,7 +101,10 @@
 |area|integer|null: false|
 |price|string|null: false|
 |size|string|null: false|
-|user|reference|null: faluse,foreign_key: true|
+|user|reference|null: false,foreign_key: true|
+|seller_id|integer|null:false, index: true|
+|buyer_id|integer|index: true|
+|status|integer|index: true|
 
 ## Association
 - belongs_to :user
@@ -112,6 +112,8 @@
 - has_many :likes
 - has_many :item_categories
 - has_many :categories, through: :item_categories
+- belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
+- belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
 
 
 
