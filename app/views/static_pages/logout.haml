@@ -1,0 +1,10 @@
+= render partial: "/shared/header"
+.main.clearfix
+  .main__content
+    = render partial: "/shared/side-list"
+    .logout-section
+      %a.logout-btn
+        .default-btn.btn-red
+          ログアウト
+= render partial: "/shared/banner"
+= render partial: "/shared/footer"
