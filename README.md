@@ -23,8 +23,8 @@
 - has_many :likes
 - has_many :items
 - has_many :evaluations
-- has_many :commented_evaluations, class_name: 'Evaluation', :foreign_key => 'commented_id'
-- has_many :commenter_evaluations, class_name: 'Evaluation', :foreign_key => 'commenter_id'
+- has_many :seller_evaluations, class_name: 'Evaluation', :foreign_key => 'seller_id'
+- has_many :buyer_evaluations, class_name: 'Evaluation', :foreign_key => 'buyer_id'
 - has_many :buyer_items, class_name: 'Item', :foreign_key => 'buyer_id'
 - has_many :seller_items, class_name: 'Item', :foreign_key => 'seller_id'
 
@@ -81,13 +81,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |mark|integer|null: false|
-|commented_id|reference|null: false, index: true, foreign_key: true|
-|commenter_id|reference|null: false, index: true, foreign_key: true|
+|seller_id|reference|null: false, index: true, foreign_key: true|
+|buyer_id|reference|null: false, index: true, foreign_key: true|
 |comment|text||
 
 ## Association
--belongs_to :commented, class_name: 'User', :foreign_key => 'commented_id'
--belongs_to :commenter, class_name: 'User', :foreign_key => 'commenter_id'
+-belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
+-belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
 
 
 
