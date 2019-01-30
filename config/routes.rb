@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'welcome#index'
+  root 'items#index'
   get 'static_pages/signup'
   get 'static_pages/login'
   get 'static_pages/registration'
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
+  get 'welcome/index'
 end
