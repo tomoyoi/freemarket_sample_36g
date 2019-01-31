@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
+  get 'items/edit'
   get 'welcome/index'
 end
