@@ -1,0 +1,18 @@
+= render partial: "/shared/header"
+.top-main
+  .top-main__top
+    %a
+  .top-main__item
+    %h2.top-main__item-title
+      出品リスト
+    .top-main__item-container
+      %h3.top-main__item-container__text
+        %a
+          新着アイテム
+      .top-main__item-container__content
+        = render partial: 'items/item', collection: @items, as: :item
+      .top-main__item-container__view-all
+        %a{}
+          全ての商品を見る
+= render partial: "/shared/banner"
+= render partial: "/shared/footer"
