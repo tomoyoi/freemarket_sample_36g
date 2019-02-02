@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
-<<<<<<< HEAD
   get 'items/edit'
-=======
   get 'welcome/index'
->>>>>>> ono0satoshi/master
 end
