@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+<<<<<<< HEAD
   end
 
   def mypage_show
@@ -19,5 +20,8 @@ class ItemsController < ApplicationController
   private 
   def item_params
     params.permit(:image, :name, :description, :delivery_fee, :area, :price, :size)
+=======
+    @items = Item.all;
+>>>>>>> ono0satoshi/master
   end
 end
