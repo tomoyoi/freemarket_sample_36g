@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   get 'users/payment'
   get 'users/profile'
   get 'users/identification'
-  get 'users/mypage-edit'
+  get 'users/mypage'
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
+  get 'items/modal'
   get 'items/edit'
+  # show 'items/edit(:id)' => 'items#destroy'
 end

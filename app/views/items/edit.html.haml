@@ -133,8 +133,7 @@
             %form
               %input  
               %button.button-gray.btn-default 出品を一旦停止する
-            %button.button-gray.btn-default この商品を削除する
-        / コメント投稿
+              = link_to 'この商品を削除する', method: :delete, class: "button-gray.btn-default"
         .buy-item-contents
           .item-detail-message
             .messager-container
