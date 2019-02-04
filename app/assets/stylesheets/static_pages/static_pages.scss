@@ -13,19 +13,6 @@
     }
   }
 }
-// あとでリファクタリングが必要です！！
-.signup-container {
-  width: 700px;
-
-  &__inner {
-    padding: 60px;
-
-    .content {
-      margin: 0 auto;
-    }
-  }
-}
-
 .default-main {
   section {
     text-align: center;

@@ -1,0 +1,33 @@
+= render 'shared/default-header'
+.default-main
+  %section.signup-container
+    %h2 Sign up
+    .inner.registration--inner.signup-container__inner
+      = form_for(resource, as: @user, html: {class: 'content'}, url: signup_address_path(@user)) do |f|
+        = devise_error_messages!
+        .field.form-group
+          = f.label :nickname
+          %span.form-require 必須
+          %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "input-default"
+        .field
+          = f.label :email
+          %span.form-require 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %span.form-require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          %span.form-require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "次へ進む", class: "default-btn btn-red"
+= render 'shared/default-footer'

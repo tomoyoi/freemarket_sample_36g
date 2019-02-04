@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controller => {
+    :registration => 'signup/registrations'
+  }
+
+  devise_scope :user do
+   get 'signup' => 'signup/registrations#index'
+   get 'signup/registration' => 'signup/registrations#new'
+   post 'signup/address' => 'signup/registrations#address'
+   post 'signup/complite' => 'sifgnup/registrations#complete'
+   post 'signup/complite' => 'signup/registrations#complite'
+  end
+
   root 'items#index'
   get 'static_pages/signup'
   get 'static_pages/login'
