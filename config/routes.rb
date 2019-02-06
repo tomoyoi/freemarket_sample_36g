@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
-  get 'items/modal'
   get 'items/mypage_show' 
   delete 'items/:id' => 'items#destroy'
   get 'items/edit'
