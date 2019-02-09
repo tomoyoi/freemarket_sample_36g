@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_051729) do
+ActiveRecord::Schema.define(version: 2019_02_09_055347) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parent_id"
@@ -90,6 +90,10 @@ ActiveRecord::Schema.define(version: 2019_02_09_051729) do
     t.string "delivery_method"
     t.string "standard_shipping_time"
     t.string "brand", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -143,5 +147,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_051729) do
   add_foreign_key "item_categories", "items"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "payments", "users"
 end
