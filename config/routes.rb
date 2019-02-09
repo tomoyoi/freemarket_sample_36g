@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'static_pages/payment'
   get 'static_pages/complite'
   get 'static_pages/logout'
+  resources :users
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   get 'items/show'
   get 'items/pconfirm'
   get 'items/mypage_show' 
-  delete 'items/:id' => 'items#destroy'
+  resources :items, only: [:destroy]
   get 'items/edit'
   get 'welcome/index'
 end
