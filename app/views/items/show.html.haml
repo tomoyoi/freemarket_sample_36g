@@ -18,7 +18,6 @@
                       / - @item.images.each do |image|
                       /   =image_tag image.image, size: "300x300"
                       =image_tag @item.images.first.image, size: "300x300"
-                      /=image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
               .owl-dots
                 .owl-dot
                   %span
@@ -108,7 +107,7 @@
               .sales-point-message
                 P 500をお持ちです
               %a.item-buy
-                = link_to "#" do
+                = link_to "/items/pconfirm" do
                   .item-buy-btn 購入画面に進む
           //商品の説明
           .item-description
