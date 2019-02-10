@@ -135,6 +135,7 @@
             =link_to "削除する", "/items/#{@item.id}", method: :delete, class: "modal-inner__btns__btn-delete"
         / 編集ボタン
         .buy-item-contents
+        / - if @item.current_user.id == current_user.id
           .item-edit-buttons
             %a{href: "", class: "btn" "btn-default"} 商品を編集する
             %p or

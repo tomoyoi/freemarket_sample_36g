@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'static_pages/payment'
   get 'static_pages/complite'
   get 'static_pages/logout'
-  resources :users
+  # resources :users
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
@@ -19,6 +19,5 @@ Rails.application.routes.draw do
   get 'items/pconfirm'
   get 'items/mypage_show' 
   resources :items, only: [:destroy]
-  get 'items/edit'
   get 'welcome/index'
 end

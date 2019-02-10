@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def mypage_show
+    # @item = current_user.items.firstに変更予定
     @item = Item.first
   end
   # def create
@@ -12,7 +13,7 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    #後でcurrent_userのIDがmypageのIDと同じである条件をかく
+    # item.destroy if item.current_user.id == current_user.idに変更
     item.destroy 
     redirect_to controller: "users", action: "mypage"
   end
