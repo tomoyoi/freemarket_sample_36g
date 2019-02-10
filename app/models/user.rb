@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+  has_many :items, foreign_key: :seller_id
+  has_many :items, foreign_key: :buyer_id
+  has_many :likes, dependent: :destroy
+
   acts_as_follower  #フォローする
   acts_as_followable  #フォローされる
 
