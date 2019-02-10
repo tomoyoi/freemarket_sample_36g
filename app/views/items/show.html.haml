@@ -1,5 +1,3 @@
-= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-
 .single-container
   = render partial: "/shared/header"
 
@@ -17,9 +15,9 @@
                 .owl-stage
                   .owl-item
                     .owl-item-inner
-                      - @item.images.each do |image|
-                        =image_tag image.image, size: "300x300"
-                      / =image_tag @item.images.first.image, size: "300x300"
+                      / - @item.images.each do |image|
+                      /   =image_tag image.image, size: "300x300"
+                      =image_tag @item.images.first.image, size: "300x300"
                       /=image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
               .owl-dots
                 .owl-dot
