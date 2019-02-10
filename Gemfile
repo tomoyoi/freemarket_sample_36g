@@ -53,6 +53,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'pry-rails'
 end
 
 group :development do
@@ -81,4 +82,3 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'acts_as_follower'
-gem 'pry-rails'
