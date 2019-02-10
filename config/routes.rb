@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :tweets do
+    resources :likes, only: [:create, :destroy]
+  end
   root 'items#index'
   get 'static_pages/signup'
   get 'static_pages/login'

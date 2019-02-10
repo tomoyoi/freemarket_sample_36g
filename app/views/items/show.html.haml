@@ -1,3 +1,5 @@
+= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+
 .single-container
   = render partial: "/shared/header"
 
@@ -15,24 +17,30 @@
                 .owl-stage
                   .owl-item
                     .owl-item-inner
-                      =image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
+                      - @item.images.each do |image|
+                        =image_tag image.image, size: "300x300"
+                      / =image_tag @item.images.first.image, size: "300x300"
+                      /=image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
               .owl-dots
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      =image_tag @item.images.first.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.second.present?
+                        =image_tag @item.images.second.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.third.present?
+                        =image_tag @item.images.third.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.fourth.present?
+                        =image_tag @item.images.fourth.image, size: "75x75"
           //table
           %table.item-detail-table
             %tr
@@ -110,6 +118,8 @@
               =@item.description
           .item-button-container.clearfix
             .item-button-left
+              //like機能用
+              //=render partial: "likes/like"
               %button.item-button.item-button-like
                 = link_to "#" do
                   %i.fa.fa-heart-o
