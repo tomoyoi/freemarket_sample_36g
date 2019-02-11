@@ -22,4 +22,9 @@ class ItemsController < ApplicationController
   def item_params
     params.permit(:image, :name, :description, :delivery_fee, :area, :price, :size)
   end
+
+  def show
+    @item = Item.find(1)
+  end
+
 end

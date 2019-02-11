@@ -8,38 +8,43 @@
         .buy-item-contents
           .buy-items-inner
             %h2.item-name
-              ラブトキシック★ショートパンツ150
+              = @item.name
           .item-photo
             .owl-carousel
               .owl-stage-outer
                 .owl-stage
                   .owl-item
                     .owl-item-inner
-                      =image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
+                      / - @item.images.each do |image|
+                      /   =image_tag image.image, size: "300x300"
+                      =image_tag @item.images.first.image, size: "300x300"
               .owl-dots
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      =image_tag @item.images.first.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.second.present?
+                        =image_tag @item.images.second.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.third.present?
+                        =image_tag @item.images.third.image, size: "75x75"
                 .owl-dot
                   %span
                     .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
+                      - if @item.images.fourth.present?
+                        =image_tag @item.images.fourth.image, size: "75x75"
           //table
           %table.item-detail-table
             %tr
               %th 出品者
               %td
                 =link_to "#" do
-                  ポンポン
+                  =@item.seller.nickname
                 .ratings
                   .item-user-ratings
                     %i.fa.fa-smile-o
@@ -65,31 +70,36 @@
             %tr
               %th ブランド
               %td
-                =link_to "#" do
-                  ラブトキシック
+                =link_to "#{@item.brand}"
             %tr
               %th 商品のサイズ
-              %td 150cm
+              %td
+                =@item.size
             %tr
               %th 商品の状態
-              %td やや傷や汚れあり
+              %td
+                =@item.condition
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                =@item.delivery_fee
             %tr
               %th 配送の方法
-              %td 未定
+              %td
+                =@item.delivery_method
             %tr
               %th 配送元地域
               %td
                 =link_to "#" do
-                  東京都
+                  =@item.area
             %tr
               %th 発送日の目安
-              %td 1~2日で発送
+              %td
+                =@item.standard_shipping_time
           .item-price-box
             .text-center
-              %span.item-price ¥777
+              %span.item-price
+                ¥#{@item.price}
               %span.item-tax (税込)
               %span.item-shipping-fee 送料込み
           %section.visible-sp
@@ -97,22 +107,16 @@
               .sales-point-message
                 P 500をお持ちです
               %a.item-buy
-                = link_to "#" do
+                = link_to "/items/pconfirm" do
                   .item-buy-btn 購入画面に進む
           //商品の説明
           .item-description
             %p.item-description-inner
-              ラブトキシックのショートパンツMサイズです。
-              ハートの形の穴がかわいいです(^^)
-              着用回数少な目で綺麗な状態ですが、
-              ウエストの調整ゴムの部分のボタンが片方取れてしまったため、応急処置でゴムを縫い付けているため、
-              やや傷ありにしています。
-              必要に応じてボタンを付けてください。
-              上記にご理解いただける方に(^^)
-
-              他にもラブトキシックなど出品しています(^。^)
+              =@item.description
           .item-button-container.clearfix
             .item-button-left
+              //like機能用
+              //=render partial: "likes/like"
               %button.item-button.item-button-like
                 = link_to "#" do
                   %i.fa.fa-heart-o
