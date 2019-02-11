@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def mypage_show
     # @item = current_user.items.firstに変更予定
     @item = Item.first
@@ -14,17 +18,13 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     # item.destroy if item.current_user.id == current_user.idに変更
-    item.destroy 
+    item.destroy
     redirect_to controller: "users", action: "mypage"
   end
 
-  private 
+  private
   def item_params
     params.permit(:image, :name, :description, :delivery_fee, :area, :price, :size)
-  end
-
-  def show
-    @item = Item.find(1)
   end
 
 end
