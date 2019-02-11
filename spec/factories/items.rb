@@ -1,6 +1,7 @@
 FactoryGirl.define do
 
   factory :item do
+    id             1
     name           "shirt"
     price          600
     description    "goood!"
