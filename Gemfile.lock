@@ -167,10 +167,10 @@ GEM
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    pry (0.11.3)
+    pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-rails (0.3.6)
+    pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.0)
@@ -335,4 +335,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.16.4
+   2.0.1
