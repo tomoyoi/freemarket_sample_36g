@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :items do
     resources :likes, only: [:create, :destroy]
+    get 'pconfirm'
   end
 end

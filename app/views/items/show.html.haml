@@ -107,8 +107,7 @@
               .sales-point-message
                 P 500をお持ちです
               %a.item-buy
-                = link_to "/items/pconfirm" do
-                  .item-buy-btn 購入画面に進む
+                = link_to "購入画面に進む", item_pconfirm_path(@item), method: :get, class:"item-buy-btn"
           //商品の説明
           .item-description
             %p.item-description-inner
