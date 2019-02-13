@@ -17,6 +17,11 @@ class User < ApplicationRecord
             presence: true
   validates :nickname, presence: true, length: { maximum: 20 }
 
+  has_many :items
+  has_many :items, foreign_key: :seller_id
+  has_many :items, foreign_key: :buyer_id
+  has_many :likes, dependent: :destroy
+
   acts_as_follower  #フォローする
   acts_as_followable  #フォローされる
 

@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new]
   post 'users/confirm' => 'users#confirm'
   get 'items/sell'
-  get 'items/show'
   get 'items/pconfirm'
   get 'welcome/index'
+  resources :items do
+    resources :likes, only: [:create, :destroy]
+    get 'pconfirm'
+  end
 end
