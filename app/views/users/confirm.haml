@@ -4,7 +4,6 @@
     %h2 登録内容確認
     .inner.registration--inner.signup-container__inner
       = form_for(@user, html: {class: 'content'},  :user => user_session_path) do |f|
-        -# = devise_error_messages!
         .field
           %label ニックネーム
           %span.form-require 必須

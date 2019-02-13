@@ -4,7 +4,6 @@
     %h2 会員情報入力
     .inner.registration--inner.signup-container__inner
       = form_for(@user, html: {class: 'content'}, url: users_confirm_path) do |f|
-        -# = devise_error_messages!
         .field
           %label ニックネーム
           %span.form-require 必須

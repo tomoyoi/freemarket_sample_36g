@@ -13,14 +13,11 @@
         %button.default-btn.google
           %i.fa.fa-google-plus
           Googleで登録
-      -# %form
       = form_for(@user, url: session_path(@user)) do |f|
         .form-inner
           .form-group
-            -#%input{type: "email",class: "input-default",placeholder: "メールアドレス"}
             = f.email_field :email, autofocus: true, autocomplete: "email",class: "input-default",pladeholder: "メールアドレス"
           .form-group
-            -# %input{type: "password",class: "input-default",placeholder: "パスワード"}
             = f.password_field :password, autocomplete: "current-password",class: "input-default",placeholder: "パスワード"
           %button.default-btn.btn-red
             = f.submit
