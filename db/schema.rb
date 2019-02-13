@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2019_02_09_055347) do
     t.string "condition"
     t.string "delivery_method"
     t.string "standard_shipping_time"
-    t.string "brand", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
@@ -120,12 +119,22 @@ ActiveRecord::Schema.define(version: 2019_02_09_055347) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
-    t.text "profile", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name_kana", default: "", null: false
+    t.string "first_name_kana", default: "", null: false
+    t.string "postcode", default: "", null: false
+    t.string "prefecture", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "house_number", default: "", null: false
+    t.string "building", default: "", null: false
+    t.string "tel_number", limit: 11, default: "", null: false
+    t.text "profile", null: false
   end
 
   add_foreign_key "identifications", "users"
