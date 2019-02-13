@@ -15,7 +15,7 @@ class UsersController < ApplicationController
      redirect_to :new
     end
   end
-  
+
   def show
       @nickname = current_user.nickname
       @items = current_user.items
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
       :house_number,
       :building,
       :tel_number,
+      :profile
     )
   end
 end
