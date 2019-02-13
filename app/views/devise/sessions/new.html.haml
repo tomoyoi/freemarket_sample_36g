@@ -16,9 +16,9 @@
       = form_for(@user, url: session_path(@user)) do |f|
         .form-inner
           .form-group
-            = f.email_field :email, autofocus: true, autocomplete: "email",class: "input-default",pladeholder: "メールアドレス"
+            = f.email_field :email, autofocus: true, autocomplete: "email",class: "form-group__input-default",pladeholder: "メールアドレス"
           .form-group
-            = f.password_field :password, autocomplete: "current-password",class: "input-default",placeholder: "パスワード"
+            = f.password_field :password, autocomplete: "current-password",class: "form-group__input-default",placeholder: "パスワード"
           %button.default-btn.btn-red
             = f.submit
             ログイン
