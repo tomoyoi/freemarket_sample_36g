@@ -6,6 +6,7 @@ describe ItemsController, type: :request do
     before { get '/' }
 
     it 'has a 200 status code' do
+      binding.pry
       expect(response).to have_http_status(:ok)
     end
 
