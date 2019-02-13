@@ -7,12 +7,10 @@
         .field
           %label ニックネーム
           %span.form-require 必須
-          %br/
           = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
         .field
           %label メールアドレス
           %span.form-require 必須
-          %br/
           = f.email_field :email, autofocus: true, autocomplete: "email"
         .field
           %label パスワード
@@ -20,62 +18,51 @@
             %em
               (#{@minimum_password_length} characters minimum)
           %span.form-require 必須
-          %br/
           = f.password_field :password, autocomplete: "new-password"
         .field
           %label パスワード（確認）
           %span.form-require 必須
-          %br/
           = f.password_field :password_confirmation, autocomplete: "new-password"
         %h2 配送先住所の登録
         .field
           %label 姓（全角）
           %span.form-require 必須
-          %br/
           = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
         .field
           %label 名（全角）
           %span.form-require 必須
-          %br/
           = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
         .field
           %label 姓カナ（全角）
           %span.form-require 必須
-          %br/
           = f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana"
         .field
           %label 名カナ（全角）
           %span.form-require 必須
-          %br/
           = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"
         .field
           %label 郵便番号
           %span.form-require 必須
-          %br/
           = f.text_field :postcode, autofocus: true, autocomplete: "postcode"
         .field
           %label 都道府県
           %span.form-require 必須
-          %br/
           = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture"
         .field
           %label 市区町村
           %span.form-require 必須
-          %br/
           = f.text_field :city, autofocus: true, autocomplete: "city"
         .field
           %label 番地
           %span.form-require 必須
-          %br/
           = f.text_field :house_number, autofocus: true, autocomplete: "house_number"
         .field
           %label 建物名
-          %br/
           = f.text_field :building, autofocus: true, autocomplete: "building"
         .field
           %label 電話番号
-          %br/
           = f.text_field :tel_number, autofocus: true, autocomplete: "tel_number", placeholder: "例）0901224567"
+          = f.hidden_field :profile, value: "こんにちは！"
         .actions
           = f.submit "確認画面へ", class: "default-btn btn-red"
 = render 'shared/default-footer'
