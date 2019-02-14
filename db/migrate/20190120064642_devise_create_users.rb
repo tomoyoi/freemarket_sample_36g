@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :house_number, null:false
       t.string :building, null:false
       t.string :tel_number, null:false
-      t.text :profile, null:false
+      t.text :profile
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

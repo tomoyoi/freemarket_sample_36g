@@ -54,6 +54,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'pry-rails'
+  gem 'rb-readline'
+  gem 'pry-byebug'
 end
 
 group :development do

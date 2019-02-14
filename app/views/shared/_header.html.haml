@@ -12,7 +12,8 @@
         %a.link-brand
           ブランドから探す
       .header__nav__right-side
-        %a.header__nav__right-side__sign-in.float-right.button
-          ログイン
-        %a.header__nav__right-side__sign-up.float-right.button
-          新規会員登録
+        - if user_signed_in?
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__nav__right-side__sign-up float-right button"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "header__nav__right-side__sign-in float-right button"
+          = link_to "新規会員登録", users_path, class: "header__nav__right-side__sign-up float-right button"
