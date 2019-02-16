@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     @items = Item.all
   end
@@ -12,20 +13,22 @@ class ItemsController < ApplicationController
     @item = Item.first
   end
 
-  def pconfirm
+  def buy
+    @item = Item.find(params[:id])
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_API_SECRET']
+    @item = Item.find(params[:id])
+    Payjp.api_key = 'sk_test_83f204a9bb34db179788dad1'
       charge = Payjp::Charge.create(
         amount: @item.price,
         card: params[:'payjp-token'],
         currency: 'jpy',
         )
+  # @item.buyer_id = current_user.id
+  # @item.save
+    redirect_to root_path
 
-    # @item.buyer_id = current_user.id
-    # @item.save
-    # redirect_to item_url(@item)
   end
 
   # def create
