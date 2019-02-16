@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :items do
+  member do
+    get 'buy'
+    post 'pay'
+  end
     resources :likes, only: [:create, :destroy]
-    get 'pconfirm'
   end
 end
