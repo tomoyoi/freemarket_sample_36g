@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.valid?
       render :action => 'confirm'
     else
-     redirect_to :new
+     redirect_to new_user_path
     end
   end
 
