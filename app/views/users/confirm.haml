@@ -1,0 +1,80 @@
+= render 'shared/default-header'
+.default-main
+  %section.signup-container
+    %h2 登録内容確認
+    .inner.registration--inner.signup-container__inner
+      = form_for(@user, html: {class: 'content'},  :user => user_session_path) do |f|
+        .field
+          %label ニックネーム
+          %span.form-require 必須
+          = f.hidden_field :nickname
+          = @user.nickname
+        .field
+          %label メールアドレス
+          %span.form-require 必須
+          = f.hidden_field :email
+          = @user.email
+        .field
+          %label パスワード
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %span.form-require 必須
+          = f.hidden_field :password
+          = @user.password
+        .field
+          %label パスワード（確認）
+          %span.form-require 必須
+          = f.hidden_field :password_confirmation
+          = @user.password_confirmation
+        %h2 配送先住所の登録
+        .field
+          %label 姓（全角）
+          %span.form-require 必須
+          = f.hidden_field :last_name
+          = @user.last_name
+        .field
+          %label 名（全角）
+          %span.form-require 必須
+          = f.hidden_field :first_name
+          = @user.first_name
+        .field
+          %label 姓カナ（全角）
+          %span.form-require 必須
+          = f.hidden_field :last_name_kana
+          = @user.last_name_kana
+        .field
+          %label 名カナ（全角）
+          %span.form-require 必須
+          = f.hidden_field :first_name_kana
+          = @user.first_name_kana
+        .field
+          %label 郵便番号
+          = f.hidden_field :postcode
+          = @user.postcode
+        .field
+          %label 都道府県
+          %span.form-require 必須
+          = f.hidden_field :prefecture
+          = @user.prefecture
+          .field
+          %label 市区町村
+          = f.hidden_field :city
+          = @user.city
+        .field
+          %label 番地
+          = f.hidden_field :house_number
+          = @user.house_number
+        .field
+          %label 建物名
+          = f.hidden_field :building
+          = @user.building
+        .field
+          %label 電話番号
+          = f.hidden_field :tel_number
+          = @user.tel_number
+          = f.hidden_field :profile
+        .actions
+          = f.submit "登録", class: "default-btn btn-red"
+          = link_to('戻る',new_user_path, class: "default-btn")
+= render 'shared/default-footer'
