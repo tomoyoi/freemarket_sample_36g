@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_055347) do
     t.string "condition"
     t.string "delivery_method"
     t.string "standard_shipping_time"
+    t.string "brand", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
@@ -135,6 +136,8 @@ ActiveRecord::Schema.define(version: 2019_02_09_055347) do
     t.string "building", default: "", null: false
     t.string "tel_number", limit: 11, default: "", null: false
     t.text "profile", null: false
+    t.string "provider"
+    t.string "uid"
   end
 
   add_foreign_key "identifications", "users"
