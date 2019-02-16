@@ -4,8 +4,7 @@
     .login-no-account
       %p
         アカウントをお持ちでない方はこちら
-      %a
-        新規会員登録
+      = link_to "新規会員登録", users_path
     .inner.login-container__inner
       .content
         %button.default-btn.facebook
@@ -14,14 +13,16 @@
         %button.default-btn.google
           %i.fa.fa-google-plus
           Googleで登録
-      %form
+      = form_for(@user, url: session_path(@user)) do |f|
         .form-inner
           .form-group
-            %input{type: "email",class: "input-default",placeholder: "メールアドレス"}
+            = f.email_field :email, autofocus: true, autocomplete: "email",class: "form-group__input-default",pladeholder: "メールアドレス"
           .form-group
-            %input{type: "password",class: "input-default",placeholder: "パスワード"}
+            = f.password_field :password, autocomplete: "current-password",class: "form-group__input-default",placeholder: "パスワード"
           %button.default-btn.btn-red
+            = f.submit
             ログイン
           %a
             パスワードをお忘れの方
 = render "shared/default-footer"
+
