@@ -6,6 +6,7 @@ describe ItemsController, type: :request do
     before { get '/' }
 
     it 'has a 200 status code' do
+      binding.pry
       expect(response).to have_http_status(:ok)
     end   
 
@@ -17,6 +18,27 @@ describe ItemsController, type: :request do
       expect(response).to render_template :index
     end
   end
+
+  describe 'GET #show' do
+    let!(:item) { create(:item) }
+    let!(:image) { create(:image) }
+    let!(:user) { create(:user) }
+    context 'When show action excute' do
+      before do
+        get item_path(item.id), params: { id: item.id }
+      end
+
+      it 'has a 200 status code' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'renders the :show template' do
+        expect(response).to render_template :show
+      end
+
+      it 'value of @item is appropriate' do
+        expect(assigns(:item)).to eq item
+      end
 
   describe 'DELETE #destroy' do
    # let(:item) { create(:item) } が反映されない意味を知りたい
@@ -38,6 +60,7 @@ describe ItemsController, type: :request do
       item = create(:item)
       delete item_path(id: item.id)
       expect(response).to redirect_to(users_mypage_path)
+
     end
   end
 end
