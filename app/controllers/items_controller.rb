@@ -1,7 +1,22 @@
 class ItemsController < ApplicationController
+
   def index
     @items = Item.all
   end
+
+  def new
+    @item = Item.new
+  end
+
+   def create
+    binding.pry
+    @item = Item.new(item_params)
+      if @item.save
+        redirect_to root_path
+      else
+        render :new
+      end
+    end
 
   def show
     @item = Item.find(params[:id])
@@ -12,25 +27,23 @@ class ItemsController < ApplicationController
     @item = Item.first
   end
 
-  def pconfirm
+  def buy
+    @item = Item.find(params[:id])
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_API_SECRET']
+    @item = Item.find(params[:id])
+    Payjp.api_key = 'sk_test_83f204a9bb34db179788dad1'
       charge = Payjp::Charge.create(
         amount: @item.price,
         card: params[:'payjp-token'],
         currency: 'jpy',
         )
+  # @item.buyer_id = current_user.id
+  # @item.save
+    redirect_to root_path
 
-    # @item.buyer_id = current_user.id
-    # @item.save
-    # redirect_to item_url(@item)
   end
-
-  # def create
-  #   Item.create(image: item_params[:image],name: item_params[:name], description: item_params[:description], delivery_fee: item_params[:delivery_fee], area: item_params[:area], price: item_params[:price], size: item_params[:size], user_id: current_user.id)
-  # end
 
   def destroy
     item = Item.find(params[:id])
@@ -41,7 +54,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:image, :name, :description, :delivery_fee, :area, :price, :size)
+    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, :buyer_id)
   end
 
 end
