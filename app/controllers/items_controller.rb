@@ -34,15 +34,15 @@ class ItemsController < ApplicationController
 
   def pay
     @item = Item.find(params[:id])
-    Payjp.api_key = 'sk_test_83f204a9bb34db179788dad1'
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       charge = Payjp::Charge.create(
         amount: @item.price,
         card: params[:'payjp-token'],
         currency: 'jpy',
         )
-  # @item.buyer_id = current_user.id
-  # @item.save
-    redirect_to root_path
+  # @item.buyer_id = current_user.id ユーザー側実装次第変更予定
+  # @item.save 同上
+    redirect_to item_url(@item)
 
   end
 
