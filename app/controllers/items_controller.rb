@@ -6,11 +6,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    4.times { @item.images.build }
   end
 
    def create
-    binding.pry
     @item = Item.new(item_params)
+    binding.pry
       if @item.save
         redirect_to root_path
       else
@@ -54,7 +55,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, :buyer_id)
+    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, :buyer_id, image_attributes:[:id, :item_id])
   end
 
 end
