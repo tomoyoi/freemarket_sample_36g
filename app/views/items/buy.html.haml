@@ -1,5 +1,5 @@
 .single-container
-  = render 'shared/default-header'
+  = render partial: "shared/default-header"
 
   %main.single-main
     %section.l-single-container
@@ -11,7 +11,6 @@
           .buy-content-inner
             %h3.buy-item-image
               =image_tag @item.images.first.image, size: "148x148"
-              / # = image_tag('m74375986154_1.jpg', size: '148x148', alt:'picture')
             %p.buy-item-name
               = @item.name
             %form.buy-form
@@ -24,7 +23,6 @@
                   .accordion-toggle
                     ポイントを使う
                     %i.fa.fa-angle-down
-                    / =fa_icon 'fa-angle-down', class: 'accordion-bottom'
                   %ul.accordion-child
                     %li.bold
                       所持ポイント：P 500
@@ -51,10 +49,8 @@
                   .buy-price-cell
                     %span.data-buy-pay
                       ¥#{@item.price}
-                / =form_tag(action: :pay, method: :post) do
-                /   %script{"data-key": "pk_test_855c8f8942c8cca49c6f6607", :src => "https://checkout.pay.jp", :type => "text/javascript","data-text": "購入する", "data-submit-text": "送信する", :class => "payjp-button"}
-                =form_tag(pay_item_path(@item), method: :post) do
-                  %script.payjp-button{"data-key": "pk_test_855c8f8942c8cca49c6f6607", src: "https://checkout.pay.jp/",'data-text':'購入する', 'data-submit-text': '送信する'}
+            =form_tag(pay_item_path(@item), method: :post) do
+              %script.payjp-button{"data-key": "pk_test_855c8f8942c8cca49c6f6607", src: "https://checkout.pay.jp/",'data-text':'購入する', 'data-submit-text': '送信する'}
         / 配送先
         .buy-contents
           .buy-content-inner
@@ -83,5 +79,4 @@
                 変更する
                 %i.icon-arrow-right >
 
-  %footer.single-footer
-    = render 'shared/default-footer'
+  = render partial: 'shared/default-footer'
