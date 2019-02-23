@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_02_23_082127) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,14 +89,9 @@ ActiveRecord::Schema.define(version: 2019_02_23_082127) do
     t.string "condition"
     t.string "delivery_method"
     t.string "standard_shipping_time"
-    t.string "brand", null: false
     t.bigint "seller_id"
     t.bigint "buyer_id"
-<<<<<<< HEAD
     t.string "brand", null: false
-=======
-    t.string "brand"
->>>>>>> ono0satoshi/master
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
@@ -144,19 +138,6 @@ ActiveRecord::Schema.define(version: 2019_02_23_082127) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "postcode", default: "", null: false
-    t.string "prefecture", default: "", null: false
-    t.string "city", default: "", null: false
-    t.string "house_number", default: "", null: false
-    t.string "building", default: "", null: false
-    t.string "tel_number", limit: 11, default: "", null: false
-    t.text "profile", null: false
-    t.string "provider"
-    t.string "uid"
   end
 
   add_foreign_key "identifications", "users"
