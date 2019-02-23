@@ -107,7 +107,7 @@
               .sales-point-message
                 P 500をお持ちです
               %a.item-buy
-                = link_to "購入画面に進む", item_pconfirm_path(@item), method: :get, class:"item-buy-btn"
+                = link_to "購入画面に進む", buy_item_path(@item), method: :get, class:"item-buy-btn"
           //商品の説明
           .item-description
             %p.item-description-inner
@@ -263,6 +263,5 @@
                         %i.fa.fa-heart-o
                           %span 1
                       %p.item-box-tax (税込)
-
   = render partial: "/shared/banner"
   = render partial: "/shared/footer"

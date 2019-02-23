@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'items/pconfirm'
   get 'welcome/index'
   resources :items do
+    get :buy, on: :member
+    post :pay, on: :member
     resources :likes, only: [:create, :destroy]
-    get 'pconfirm'
   end
 end
