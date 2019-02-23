@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   post 'users/confirm' => 'users#confirm'
   get 'items/sell'
   get 'items/pconfirm'
+  get 'items/edit'
   get 'welcome/index'
   resources :items do
-  member do
-    get 'buy'
-    post 'pay'
-  end
+    member do
+      get 'buy'
+      post 'pay'
+    end
     resources :likes, only: [:create, :destroy]
   end
 end

@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def mypage_show
+  def edit
     # @item = current_user.items.firstに変更予定
     @item = Item.first
   end
@@ -49,6 +49,13 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     # item.destroy if item.current_user.id == current_user.idに変更
     item.destroy
+    redirect_to controller: "users", action: "mypage"
+  end
+
+  def update
+    item = Item.find(params[:id])
+    # item.update if item.current_user.id == current_user.idに変更
+    item.update(item_params)
     redirect_to controller: "users", action: "mypage"
   end
 
