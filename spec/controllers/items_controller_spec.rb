@@ -6,9 +6,8 @@ describe ItemsController, type: :request do
     before { get '/' }
 
     it 'has a 200 status code' do
-      binding.pry
       expect(response).to have_http_status(:ok)
-    end   
+    end
 
     it 'assigns @item' do
       expect(assigns(:items)).to match_array(@items)
@@ -39,6 +38,27 @@ describe ItemsController, type: :request do
       it 'value of @item is appropriate' do
         expect(assigns(:item)).to eq item
       end
+    end
+  end
+
+  describe 'GET #buy' do
+    let!(:item) { create(:item) }
+    let!(:image) { create(:image) }
+    let!(:user) { create(:user) }
+    context 'When buy action excute' do
+      before do
+        get item_path(item.id), params: { id: item.id }
+      end
+
+      it 'has a 200 status code' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'value of @item is appropriate' do
+        expect(assigns(:item)).to eq item
+      end
+    end
+  end
 
   describe 'DELETE #destroy' do
    # let(:item) { create(:item) } が反映されない意味を知りたい

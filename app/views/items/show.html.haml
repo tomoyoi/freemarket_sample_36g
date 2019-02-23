@@ -295,8 +295,5 @@
                         %i.fa.fa-heart-o
                           %span 1
                       %p.item-box-tax (税込)
-                =form_tag(pay_item_path(@item), method: :post) do
-                  %script{"data-key": "pk_test_855c8f8942c8cca49c6f6607", :src => "https://checkout.pay.jp", :type => "text/javascript","data-text": "購入する", "data-submit-text": "送信する", :class => "payjp-button"}
-
   = render partial: "/shared/banner"
   = render partial: "/shared/footer"

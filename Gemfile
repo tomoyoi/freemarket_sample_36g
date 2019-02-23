@@ -40,6 +40,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "haml-rails"
 gem 'font-awesome-rails'
+gem 'faker'
+gem 'rails-controller-testing'
+gem 'rspec-rails'
+gem 'factory_girl_rails', "~> 4.4.1"
+gem 'pry-rails'
+gem 'rb-readline'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,12 +55,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'faker'
-  gem 'rails-controller-testing'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails', "~> 4.4.1"
-  gem 'pry-rails'
-  gem 'rb-readline'
   gem 'pry-byebug'
 end
 
