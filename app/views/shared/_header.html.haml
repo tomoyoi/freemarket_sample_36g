@@ -17,3 +17,5 @@
         - else
           = link_to "ログイン", new_user_session_path, class: "header__nav__right-side__sign-in float-right button"
           = link_to "新規会員登録", users_path, class: "header__nav__right-side__sign-up float-right button"
+    = render "/shared/bread-crumbs"
+    = breadcrumbs separator: " &rsaquo; " 
