@@ -11,11 +11,6 @@ Rails.application.routes.draw do
   post 'users/confirm' => 'users#confirm'
   get 'items/sell'
   get 'items/pconfirm'
-<<<<<<< HEAD
-  get 'items/edit' 
-  resources :items, only: [:destroy, :edit, :update]
-=======
->>>>>>> master
   get 'welcome/index'
   resources :items do
     get :buy, on: :member
