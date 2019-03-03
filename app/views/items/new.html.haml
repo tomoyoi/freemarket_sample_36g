@@ -13,15 +13,21 @@
               出品画像
               %span.form-require.sell 必須
             %p.sell-contents__comment 最大4枚までアップロードできます
+
             .sell-dropbox_container
-              = f.fields_for :image, multiple: true do |i|
+              = f.fields_for :images, multiple: true do |i|
                 %ul.sell-dropbox-items
                 .sell-dropbox-uploader
-                  = i.label :image, class: 'sell-dropbox-uploader_container' do
+                  = i.label :images, class: 'sell-dropbox-uploader_container' do
                     .visible-pc#drop
                       ドラッグアンドドロップ
-                      %br またはクリックしてファイルをアップロード
-                    = i.file_field :image, multiple: true, class: "product_images"
+                      または
+                      %br クリックしてファイルをアップロード
+                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image1", name: "[image][]",multiple: true
+                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image2", name: "[image][]",multiple: true
+                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image3", name: "[image][]",multiple: true
+                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image4", name: "[image][]",multiple: true
+
             / 商品名・商品の説明
           .sell-contents
             .form-group
@@ -54,15 +60,15 @@
                 /     = f.select :category,["ジーンズ","ジャケット","レザー"],prompt: "---"
             .sell-form-box
               .form-group
-                = f.label :size,class: "sell-form-select" do
+                = f.label :size_id,class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     サイズ
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :size, ["S","M","L"], prompt: "---"
+                    = f.collection_select :size_id, Size.all, :id, :size, prompt: "---"
             .sell-form-box
               .form-group
-                =f.fields_for :brand_attributes do |b|
+                =f.fields_for :brand_attributes, @item.brand do |b|
                   .form-group
                     = b.label :name do
                       %h4.sell-form-sub_title

@@ -6,15 +6,21 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    4.times { @item.images.build }
+    # 4.times { @item.images.build }
+    @item.images.build
+    @sizes = Size.all
   end
 
    def create
     @item = Item.new(item_params)
-    binding.pry
+    # binding.pry
       if @item.save
+        parms[:image].each do |i|
+          @item.images.create(item_id: @item.id, image: i)
+        end
         redirect_to root_path
       else
+        @item.images.build
         render :new
       end
     end
@@ -55,7 +61,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, :buyer_id, image_attributes:[:id, :item_id])
+    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, image_attributes:[:id, :image, :item_id, :user_id])
   end
 
 end
