@@ -140,8 +140,7 @@
             %form
               %input
               %button.button-gray.btn-default 出品を一旦停止する
-              %button#item-delete.button-gray.btn-default 
-              = link_to 'この商品を削除する', method: :delete, class: "button-gray.btn-default"
+              %button#item-delete.button-gray.btn-default 'この商品を削除する'
         .buy-item-contents
           .item-detail-message
             .messager-container
@@ -153,5 +152,7 @@
                   = f.text_area :form,class: "textarea-default"
                 %button.message-submit.btn-default.btn-gray
                   %span コメントする
+        / modal
+        .modal-overlay
   = render partial: "/shared/banner"
   = render partial: "/shared/footer"
