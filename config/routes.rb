@@ -1,23 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root 'items#index'
-  get 'static_pages/signup'
-  get 'static_pages/login'
-  get 'static_pages/registration'
-  get 'static_pages/deliver_address'
-  get 'static_pages/payment'
-  get 'static_pages/complite'
-  get 'static_pages/logout'
-  # resources :users
   get 'users/mypage'
   get 'users/payment'
   get 'users/profile'
   get 'users/identification'
-  get 'users/mypage'
+  get 'users/mypage-edit'
+  resources :users, only: [:index, :new]
+  post 'users/confirm' => 'users#confirm'
   get 'items/sell'
-  get 'items/show'
   get 'items/pconfirm'
-  get 'items/edit' 
-  resources :items, only: [:destroy, :edit, :update]
   get 'welcome/index'
+  resources :items do
+    get :buy, on: :member
+    post :pay, on: :member
+    resources :likes, only: [:create, :destroy]
+  end
 end
