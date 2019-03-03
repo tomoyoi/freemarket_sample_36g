@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'items/sell'
   get 'items/show'
   get 'items/pconfirm'
-  get 'items/mypage_show' 
-  resources :items, only: [:destroy]
+  get 'items/edit' 
+  resources :items, only: [:destroy, :edit, :update]
   get 'welcome/index'
 end
