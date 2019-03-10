@@ -10,7 +10,7 @@
         .buy-contents
           .buy-content-inner
             %h3.buy-item-image
-              =image_tag @item.images.first.image, size: "148x148"
+              =image_tag @item.images.first.image.url, size: "148x148"
             %p.buy-item-name
               = @item.name
             %form.buy-form

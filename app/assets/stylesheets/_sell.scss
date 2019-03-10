@@ -133,14 +133,15 @@ header.single-header {
     &_container{
       margin-top: 16px;
       height:162px;
-      width:100%;
+      width:103%;
       float:left;
     }
     &-items{
       height:100%;
       float: left;
-      background: white;
-      border-right: thin dashed gray;
+      // width:646px;
+      // background: white;
+      // border-right: thin dashed gray;
       @include clearfix;
       &_container{
         height:100%;
@@ -358,3 +359,10 @@ p.single-footer-copyright {
   width: 50px;
   height: 30px
 }
+
+.sell-dropbox-items-figure
+img {
+  width: 125px;
+  height: 110px
+}
+

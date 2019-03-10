@@ -6,16 +6,14 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # 4.times { @item.images.build }
     @item.images.build
     @sizes = Size.all
   end
 
    def create
     @item = Item.new(item_params)
-    # binding.pry
       if @item.save
-        parms[:image].each do |i|
+        params[:image].each do |i|
           @item.images.create(item_id: @item.id, image: i)
         end
         redirect_to root_path
@@ -48,7 +46,7 @@ class ItemsController < ApplicationController
         )
   # @item.buyer_id = current_user.id ユーザー側実装次第変更予定
   # @item.save 同上
-    redirect_to item_url(@item)
+    redirect_to root_path
 
   end
 
@@ -61,7 +59,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, image_attributes:[:id, :image, :item_id, :user_id])
+    params.require(:item).permit(:name, :description, :delivery_fee, :area, :price, :condition, :delivery_method, :standard_shipping_time, :brand, :seller_id, :size_id, :category_id, image_attributes:[:id, :image, :item_id, :user_id])
   end
 
 end

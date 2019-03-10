@@ -5,6 +5,8 @@
     %section.l-single-container
       .sell-container
         = form_for @item, url: items_path do |f|
+          = f.hidden_field :seller_id, value: 1
+          / # = f.hidden_field :category_id, value: 6
           .sell-container-inner
             %h2.l-single-head 商品の情報を入力
           / 画像投稿
@@ -13,7 +15,6 @@
               出品画像
               %span.form-require.sell 必須
             %p.sell-contents__comment 最大4枚までアップロードできます
-
             .sell-dropbox_container
               = f.fields_for :images, multiple: true do |i|
                 %ul.sell-dropbox-items
@@ -23,10 +24,10 @@
                       ドラッグアンドドロップ
                       または
                       %br クリックしてファイルをアップロード
-                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image1", name: "[image][]",multiple: true
-                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image2", name: "[image][]",multiple: true
-                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image3", name: "[image][]",multiple: true
-                    = i.file_field :image,class: "item_images hidden",id:"image_attributes_0_image4", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image1", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image2", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image3", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image4", name: "[image][]",multiple: true
 
             / 商品名・商品の説明
           .sell-contents
@@ -48,16 +49,17 @@
             %h3.sell-sub-head 商品の詳細
             .sell-form-box
               .form-group
-                / = f.label :category,class: "sell-form-select" do
-                /   %h4.sell-form-sub_title
-                /     カテゴリー
-                /     %span.form-require.sell 必須
-                /   .select-wrap
-                /     = f.select :category,["レディース","メンズ","キッズ"],prompt: "---"
-                /   .select-wrap
-                /     = f.select :category,["パンツ","スカート","トップス"],prompt: "---"
-                /   .select-wrap
-                /     = f.select :category,["ジーンズ","ジャケット","レザー"],prompt: "---"
+                = f.label :category, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    カテゴリー
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
+                  /   = f.select :category,["パンツ","スカート","トップス"], prompt: "---"
+                  / .select-wrap
+                  /   = f.select :category,["パンツ","スカート","トップス"], prompt: "---"
+                  / .select-wrap
+                  /   = f.select :category,["ジーンズ","ジャケット","レザー"], prompt: "---"
             .sell-form-box
               .form-group
                 = f.label :size_id,class: "sell-form-select" do
@@ -68,13 +70,13 @@
                     = f.collection_select :size_id, Size.all, :id, :size, prompt: "---"
             .sell-form-box
               .form-group
-                =f.fields_for :brand_attributes, @item.brand do |b|
-                  .form-group
-                    = b.label :name do
-                      %h4.sell-form-sub_title
-                        ブランド
-                        %span.form-arbitrary.sell 任意
-                    = b.text_field :name, placeholder: "例）シャネル",autocomplete:"on",class: "sell-form-text_field input_brand"
+                / # =f.fields_for :brand do |b|
+                .form-group
+                  = f.label :brand do
+                    %h4.sell-form-sub_title
+                      ブランド
+                      %span.form-arbitrary.sell 任意
+                  = f.text_field :brand, placeholder: "例）シャネル",autocomplete:"on",class: "sell-form-text_field input_brand"
             .sell-form-box
               .form-group
                 = f.label :condition, class: "sell-form-select" do

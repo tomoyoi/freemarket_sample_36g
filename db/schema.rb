@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_040726) do
+ActiveRecord::Schema.define(version: 2019_03_10_055553) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parent_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_03_040726) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "delivery_fee", null: false
+    t.string "delivery_fee", null: false
     t.string "area", null: false
     t.integer "price", null: false
     t.datetime "created_at"
@@ -92,7 +92,9 @@ ActiveRecord::Schema.define(version: 2019_03_03_040726) do
     t.bigint "buyer_id"
     t.string "brand"
     t.bigint "size_id"
+    t.bigint "category_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["size_id"], name: "index_items_on_size_id"
   end
@@ -152,6 +154,7 @@ ActiveRecord::Schema.define(version: 2019_03_03_040726) do
   add_foreign_key "item_categories", "items"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
