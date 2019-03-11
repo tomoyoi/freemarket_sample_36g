@@ -6,7 +6,8 @@
       .mypage-content__mypage-icon
         %a{href: "#"}
           %img
-          %h2 Momo
+          %h2
+            = @user.nickname
           .mypage-number
             .evaluation 評価
             .number 35
@@ -47,6 +48,17 @@
             %a
           %il.inactive
             %h3 過去の取引
+            %a
+          %il.mypage-go-list
+            %a 一覧を見る
+      .mypage-content__mypage-tab-container
+        %h2 出品した商品
+        %ul.mypage-tabs
+          %il.active
+            %h3 出品中
+            %a
+          %il.inactive
+            %h3 売却済
             %a
           %il.mypage-go-list
             %a 一覧を見る

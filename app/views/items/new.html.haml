@@ -5,7 +5,7 @@
     %section.l-single-container
       .sell-container
         = form_for @item, url: items_path do |f|
-          = f.hidden_field :seller_id, value: 1
+          = f.hidden_field :seller_id, value: current_user.id
           / # = f.hidden_field :category_id, value: 6
           .sell-container-inner
             %h2.l-single-head 商品の情報を入力

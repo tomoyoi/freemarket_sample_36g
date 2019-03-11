@@ -44,10 +44,8 @@ class ItemsController < ApplicationController
         card: params[:'payjp-token'],
         currency: 'jpy',
         )
-  # @item.buyer_id = current_user.id ユーザー側実装次第変更予定
-  # @item.save 同上
+        @item.update!(buyer_id: current_user.id)
     redirect_to root_path
-
   end
 
   def destroy
