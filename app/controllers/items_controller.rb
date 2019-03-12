@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
         )
   # @item.buyer_id = current_user.id ユーザー側実装次第変更予定
   # @item.save 同上
-    redirect_to item_url(@item)
+    redirect_to root_path
 
   end
 
