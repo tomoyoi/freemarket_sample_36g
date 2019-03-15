@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_055553) do
+ActiveRecord::Schema.define(version: 2019_03_12_074930) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parent_id"
@@ -90,11 +90,13 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.string "standard_shipping_time"
     t.bigint "seller_id"
     t.bigint "buyer_id"
-    t.string "brand"
+    t.string "brand", null: false
     t.bigint "size_id"
     t.bigint "category_id"
+    t.bigint "seize_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["seize_id"], name: "index_items_on_seize_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["size_id"], name: "index_items_on_size_id"
   end
@@ -117,6 +119,19 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
+  create_table "seizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+  end
+
+  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -147,10 +162,11 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.string "uid"
     t.string "token"
     t.string "meta"
-    
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
   end
 
   add_foreign_key "identifications", "users"
@@ -161,6 +177,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "seizes"
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
