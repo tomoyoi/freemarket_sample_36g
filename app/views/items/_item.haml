@@ -1,12 +1,13 @@
 .item
-  = link_to image_tag(item.set_main_thumbnail,class: "item__image")
-  .item__body
-    %h3.item__body__text
-      = item.name
-    .item__body__status
-      .item__body__status__price
-        ¥#{item.price}
-      .item__body__status__tax
-        (税込)
-      .item__body__status__like
-        &#9825; 19
+  = link_to item_path(item) do
+    =image_tag(item.set_main_thumbnail,class: "item__image")
+    .item__body
+      %h3.item__body__text
+        = item.name
+      .item__body__status
+        .item__body__status__price
+          ¥#{item.price}
+        .item__body__status__tax
+          (税込)
+        .item__body__status__like
+          &#9825; 19
