@@ -124,11 +124,11 @@
               = link_to "#" do
                 %i.fa.fa-lock
                   %span あんしん・あんぜんへの取り組み
-        / modal
-        .modal-inner
-          .modal-inner__modal-body
-            .modal-inner__modal-body__modal-head 確認
-            .modal-inner__modal-body__modal-desc 削除すると二度と復活できません。<br>削除する代わりに停止することもできます。<br><br>本当に削除しますか？
+          / modal
+          .modal-inner
+            .modal-inner__modal-body
+              .modal-inner__modal-body__modal-head 確認
+              .modal-inner__modal-body__modal-desc 削除すると二度と復活できません。<br>削除する代わりに停止することもできます。<br><br>本当に削除しますか？
           .modal-inner__btns
             =link_to "キャンセル", "/users/mypage", class: "modal-inner__btns__btn-cancel"
             =link_to "削除する", "/items/#{@item.id}", method: :delete, class: "modal-inner__btns__btn-delete"
