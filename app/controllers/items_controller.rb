@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def mypage_show
+  def edit
     # @item = current_user.items.firstに変更予定
     @item = Item.first
   end
