@@ -6,7 +6,8 @@
       .mypage-content__mypage-icon
         %a{href: "#"}
           %img
-          %h2 Momo
+          %h2
+            = @user.nickname
           .mypage-number
             .evaluation 評価
             .number 35
@@ -50,6 +51,7 @@
             %a
           %il.mypage-go-list
             %a 一覧を見る
+
 = render partial: "/shared/banner"
 = render partial: "/shared/footer"
 

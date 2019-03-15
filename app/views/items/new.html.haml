@@ -4,7 +4,9 @@
   %main.single-main
     %section.l-single-container
       .sell-container
-        = form_for @item, :form do |f|
+        = form_for @item, url: items_path do |f|
+          = f.hidden_field :seller_id, value: current_user.id
+          / # = f.hidden_field :category_id, value: 6
           .sell-container-inner
             %h2.l-single-head 商品の情報を入力
           / 画像投稿
@@ -14,14 +16,18 @@
               %span.form-require.sell 必須
             %p.sell-contents__comment 最大4枚までアップロードできます
             .sell-dropbox_container
-              = f.fields_for :images,multiple: true do |i|
+              = f.fields_for :images, multiple: true do |i|
                 %ul.sell-dropbox-items
                 .sell-dropbox-uploader
-                  = i.label :image,class: 'sell-dropbox-uploader_container' do
+                  = i.label :images, class: 'sell-dropbox-uploader_container' do
                     .visible-pc#drop
                       ドラッグアンドドロップ
-                      %br またはクリックしてファイルをアップロード
-                    = i.file_field :image,multiple: true,class: "product_images"
+                      または
+                      %br クリックしてファイルをアップロード
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image1", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image2", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image3", name: "[image][]",multiple: true
+                    = i.file_field :image, class: "item_images hidden", id:"image_attributes_0_image4", name: "[image][]",multiple: true
 
             / 商品名・商品の説明
           .sell-contents
@@ -32,52 +38,53 @@
                   %span.form-require.sell 必須
                 = f.text_field :name, placeholder: "商品名（必須40文字まで)",class: "sell-form-text_field"
             .form-group
-              = f.label :info do
+              = f.label :description do
                 %h4.sell-form-sub_title
                   商品の説明
                   %span.form-require.sell 必須
-                = f.text_area :info, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",class: "sell-form-text_area"
+                = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",class: "sell-form-text_area"
 
           / 商品の詳細
           .sell-contents
             %h3.sell-sub-head 商品の詳細
             .sell-form-box
               .form-group
-                = f.label :category,class: "sell-form-select" do
+                = f.label :category, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     カテゴリー
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :category,["レディース","メンズ","キッズ"],prompt: "---"
-                  .select-wrap
-                    = f.select :category,["パンツ","スカート","トップス"],prompt: "---"
-                  .select-wrap
-                    = f.select :category,["ジーンズ","ジャケット","レザー"],prompt: "---"
+                    = f.collection_select :category_id, Category.all, :id, :name, prompt: "---"
+                  /   = f.select :category,["パンツ","スカート","トップス"], prompt: "---"
+                  / .select-wrap
+                  /   = f.select :category,["パンツ","スカート","トップス"], prompt: "---"
+                  / .select-wrap
+                  /   = f.select :category,["ジーンズ","ジャケット","レザー"], prompt: "---"
             .sell-form-box
               .form-group
-                = f.label :size,class: "sell-form-select" do
+                = f.label :size_id,class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     サイズ
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :size, ["S","M","L"], prompt: "---"
+                    = f.collection_select :size_id, Size.all, :id, :size, prompt: "---"
             .sell-form-box
               .form-group
-                =f.fields_for :brand_attributes do |b|
-                  .form-group
-                    = b.label :name do
-                      %h4.sell-form-sub_title
-                        ブランド
-                        %span.form-arbitrary.sell 任意
-                    = b.text_field :name, placeholder: "例）シャネル",autocomplete:"on",class: "sell-form-text_field input_brand"
+                / # =f.fields_for :brand do |b|
+                .form-group
+                  = f.label :brand do
+                    %h4.sell-form-sub_title
+                      ブランド
+                      %span.form-arbitrary.sell 任意
+                  = f.text_field :brand, placeholder: "例）シャネル",autocomplete:"on",class: "sell-form-text_field input_brand"
             .sell-form-box
               .form-group
-                = f.label :status, class: "sell-form-select" do
+                = f.label :condition, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     商品の状態
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :status, ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], prompt: "---"
+                    = f.select :condition, ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], prompt: "---"
           / 配送について
           .sell-contents
             %h3.sell-contents-label
@@ -86,36 +93,36 @@
                 =fa_icon 'fa-question-circle', class: 'fa-question-circle'
             .sell-form-box
               .form-group
-                = f.label :delivery_fee_owner, class: "sell-form-select" do
+                = f.label :delivery_fee, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     配送料の負担
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :delivery_fee_owner, ["着払い(購入者負担)","送料込み(出品者負担)"], prompt: "---"
+                    = f.select :delivery_fee, ["着払い(購入者負担)","送料込み(出品者負担)"], prompt: "---"
             .sell-form-box
               .form-group
-                = f.label :shipping_method, class: "sell-form-select" do
+                = f.label :delivery_method, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     配送の方法
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :shipping_method, ["未定","クロネコヤマト","ゆうパック","ゆうメール"], prompt: "---"
+                    = f.select :delivery_method, ["未定","クロネコヤマト","ゆうパック","ゆうメール"], prompt: "---"
             .sell-form-box
               .form-group
-                = f.label :prefecture, class: "sell-form-select" do
+                = f.label :area, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     発送元の地域
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :prefecture, ["北海道","東京","福岡","沖縄"], prompt: "---"
+                    = f.select :area, ["北海道","東京","福岡","沖縄"], prompt: "---"
             .sell-form-box
               .form-group
-                = f.label :delivery_date, class: "sell-form-select" do
+                = f.label :standard_shipping_time, class: "sell-form-select" do
                   %h4.sell-form-sub_title
                     発送までの日数
                     %span.form-require.sell 必須
                   .select-wrap
-                    = f.select :delivery_date,["1〜2日で発送","2〜3日で発送","4〜7日で発送"], prompt: "---"
+                    = f.select :standard_shipping_time,["1〜2日で発送","2〜3日で発送","4〜7日で発送"], prompt: "---"
           / 販売価格
           .sell-contents
             %h3.sell-contents-label

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get 'users/profile'
   get 'users/identification'
   get 'users/mypage-edit'
-  resources :users, only: [:index, :new]
+  resources :users, only: [:index, :new] do
+    get :mypage, on: :member
+  end
   post 'users/confirm' => 'users#confirm'
-  get 'items/sell'
-  get 'items/pconfirm'
   get 'welcome/index'
   resources :items do
     get :buy, on: :member
