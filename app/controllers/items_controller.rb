@@ -6,14 +6,19 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.build
+    @sizes = Size.all
   end
 
    def create
-    binding.pry
     @item = Item.new(item_params)
       if @item.save
+        params[:image].each do |i|
+          @item.images.create(item_id: @item.id, image: i)
+        end
         redirect_to root_path
       else
+        @item.images.build
         render :new
       end
     end
@@ -39,10 +44,8 @@ class ItemsController < ApplicationController
         card: params[:'payjp-token'],
         currency: 'jpy',
         )
-  # @item.buyer_id = current_user.id ユーザー側実装次第変更予定
-  # @item.save 同上
+        @item.update!(buyer_id: current_user.id)
     redirect_to root_path
-
   end
 
   def destroy
@@ -61,7 +64,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :description, :delivery_fee, :area, :price, :price, :size, :condition, :delivery_method, :standard_shippiont_time, :brand, :seller_id, :buyer_id)
+    params.require(:item).permit(:name, :description, :delivery_fee, :area, :price, :condition, :delivery_method, :standard_shipping_time, :brand, :seller_id, :size_id, :category_id, image_attributes:[:id, :image, :item_id, :user_id])
   end
 
 end
