@@ -1,25 +1,20 @@
 .buy-item-contents {
   margin: 24px 0;
   padding: 0 40px;
-  .item-edit-buttons {
-    background: #fff;
-    padding: 8px 16px;
-    a {
-      margin: 16px 0;
+  .buttons-wrap  {
+    margin: 16px;
+    padding: 16px;
+    top: 16px;
+    position: relative;
+    .item-edit-buttons {
       background: #ea352d;
       border: 1px solid #ea352d;
-      color: #fff;
-      display: block;
-      width: 100%;
-      line-height: 48px;
-      font-size: 14px;
-      border: 1px solid transparent;
-      -webkit-transition: all ease-out .3s;
-      transition: all ease-out .3s;
-      cursor: pointer;
-      text-align: center;      
+      a {
+        color: #fff;
+      }
     }
     p {
+      margin-top: 20px;
       font-size: 16px;
       text-align: center;
     }

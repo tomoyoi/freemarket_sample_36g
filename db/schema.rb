@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_02_23_082127) do
+=======
+ActiveRecord::Schema.define(version: 2019_02_14_054934) do
+>>>>>>> ono0satoshi/master
+=======
 ActiveRecord::Schema.define(version: 2019_03_10_055553) do
+>>>>>>> ono0satoshi/master
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parent_id"
@@ -132,6 +140,10 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
     t.string "last_name", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "last_name_kana", default: "", null: false
@@ -147,10 +159,14 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.string "uid"
     t.string "token"
     t.string "meta"
+<<<<<<< HEAD
+>>>>>>> ono0satoshi/master
+=======
     
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+>>>>>>> ono0satoshi/master
   end
 
   add_foreign_key "identifications", "users"
