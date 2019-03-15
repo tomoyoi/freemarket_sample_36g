@@ -21,6 +21,10 @@ class UsersController < ApplicationController
       @items = current_user.items
   end
 
+  def mypage
+    @user = User.find(params[:id])
+  end
+
   private
 
   def signup_params
