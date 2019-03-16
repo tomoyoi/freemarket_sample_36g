@@ -2,113 +2,167 @@
   = render partial: "/shared/header"
   %main.single-main
     %section.l-single-container
-      .buy-container
-        / 商品の詳細
-        .buy-item-contents
-          .buy-items-inner
-            %h2.item-name
-              ラブトキシック★ショートパンツ150
-          .item-photo
-            .owl-carousel
-              .owl-stage-outer
-                .owl-stage
-                  .owl-item
-                    .owl-item-inner
-                      =image_tag('m74375986154_1.jpg', size: '300x300', alt:'picture')
-              .owl-dots
-                .owl-dot
-                  %span
-                    .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
-                .owl-dot
-                  %span
-                    .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
-                .owl-dot
-                  %span
-                    .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
-                .owl-dot
-                  %span
-                    .owl-dot-inner
-                      = image_tag('m74375986154_1.jpg', size: '75x75', alt:'picture')
-          //table
-          %table.item-detail-table
-            %tr
-              %th 出品者
-              %td
-                =link_to "#" do
-                  ポンポン
-                .ratings
-                  .item-user-ratings
-                    %i.fa.fa-smile-o
-                    %span 743
-                  .item-user-ratings
-                    %i.fa.fa-meh-o
-                    %span 1
-                  .item-user-ratings
-                    %i.fa.fa-frown-o
-                    %span 0
-            %tr
-              %th カテゴリー
-              %td
-                =link_to "#" do
-                  ベビーキッズ
-                .item-detail-table-sub-category
-                  =link_to "#" do
-                    %i.fa.fa-angle-right
-                    キッズ服（女の子用）100cm〜
-                  =link_to "#" do
-                    %i.fa.fa-angle-right
-                    パンツ
-            %tr
-              %th ブランド
-              %td
-                =link_to "#" do
-                  ラブトキシック
-            %tr
-              %th 商品のサイズ
-              %td 150cm
-            %tr
-              %th 商品の状態
-              %td やや傷や汚れあり
-            %tr
-              %th 配送料の負担
-              %td 送料込み(出品者負担)
-            %tr
-              %th 配送の方法
-              %td 未定
-            %tr
-              %th 配送元地域
-              %td
-                =link_to "#" do
-                  東京都
-            %tr
-              %th 発送日の目安
-              %td 1~2日で発送
-          .item-price-box
-            .text-center
-              %span.item-price ¥777
-              %span.item-tax (税込)
-              %span.item-shipping-fee 送料込み
-          %section.visible-sp
-            .text-center
-              .sales-point-message
-                P 500をお持ちです
-              %a.item-buy
-                = link_to "#" do
-                  .item-buy-btn 購入画面に進む
-          //商品の説明
-          .item-description
-            %p.item-description-inner
-              ラブトキシックのショートパンツMサイズです。
-              ハートの形の穴がかわいいです(^^)
-              着用回数少な目で綺麗な状態ですが、
-              ウエストの調整ゴムの部分のボタンが片方取れてしまったため、応急処置でゴムを縫い付けているため、
-              やや傷ありにしています。
-              必要に応じてボタンを付けてください。
-              上記にご理解いただける方に(^^)
+      .sell-container
+        = form_for @item, :form do |f|
+          .sell-container-inner
+            %h2.l-single-head 商品の情報を入力
+          / 画像投稿
+          .sell-contents
+            %h3.sell-form-title
+              出品画像
+              %span.form-require.sell 必須
+            %p.sell-contents__comment 最大4枚までアップロードできます
+            .sell-dropbox_container
+              = f.fields_for :images,multiple: true do |i|
+                %ul.sell-dropbox-items
+                .sell-dropbox-uploader
+                  = i.label :image,class: 'sell-dropbox-uploader_container' do
+                    .visible-pc#drop
+                      ドラッグアンドドロップ
+                      %br またはクリックしてファイルをアップロード
+                    = i.file_field :image,multiple: true,class: "product_images"
+            / 商品名・商品の説明
+          .sell-contents
+            .form-group
+              = f.label :name do
+                %h4.sell-form-sub_title
+                  商品名
+                  %span.form-require.sell 必須
+                = f.text_field :name, placeholder: "商品名（必須40文字まで)",class: "sell-form-text_field"
+            .form-group
+              = f.label :info do
+                %h4.sell-form-sub_title
+                  商品の説明
+                  %span.form-require.sell 必須
+                = f.text_area :info, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",class: "sell-form-text_area"
 
+          / 商品の詳細
+          .sell-contents
+            %h3.sell-sub-head 商品の詳細
+            .sell-form-box
+              .form-group
+                = f.label :category,class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    カテゴリー
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :category,["レディース","メンズ","キッズ"],prompt: "---"
+                  .select-wrap
+                    = f.select :category,["パンツ","スカート","トップス"],prompt: "---"
+                  .select-wrap
+                    = f.select :category,["ジーンズ","ジャケット","レザー"],prompt: "---"
+            .sell-form-box
+              .form-group
+                = f.label :size,class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    サイズ
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :size, ["S","M","L"], prompt: "---"
+            .sell-form-box
+              .form-group
+                =f.fields_for :brand_attributes do |b|
+                  .form-group
+                    = b.label :name do
+                      %h4.sell-form-sub_title
+                        ブランド
+                        %span.form-arbitrary.sell 任意
+                    = b.text_field :name, placeholder: "例）シャネル",autocomplete:"on",class: "sell-form-text_field input_brand"
+            .sell-form-box
+              .form-group
+                = f.label :status, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    商品の状態
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :status, ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], prompt: "---"
+          / 配送について
+          .sell-contents
+            %h3.sell-contents-label
+              配送について
+              =link_to "#" do
+                =fa_icon 'fa-question-circle', class: 'fa-question-circle'
+            .sell-form-box
+              .form-group
+                = f.label :delivery_fee_owner, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    配送料の負担
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :delivery_fee_owner, ["着払い(購入者負担)","送料込み(出品者負担)"], prompt: "---"
+            .sell-form-box
+              .form-group
+                = f.label :shipping_method, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    配送の方法
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :shipping_method, ["未定","クロネコヤマト","ゆうパック","ゆうメール"], prompt: "---"
+            .sell-form-box
+              .form-group
+                = f.label :prefecture, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    発送元の地域
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :prefecture, ["北海道","東京","福岡","沖縄"], prompt: "---"
+            .sell-form-box
+              .form-group
+                = f.label :delivery_date, class: "sell-form-select" do
+                  %h4.sell-form-sub_title
+                    発送までの日数
+                    %span.form-require.sell 必須
+                  .select-wrap
+                    = f.select :delivery_date,["1〜2日で発送","2〜3日で発送","4〜7日で発送"], prompt: "---"
+          / 販売価格
+          .sell-contents
+            %h3.sell-contents-label
+              販売価格(300〜9,999,999)
+              =link_to "#" do
+                =fa_icon 'fa-question-circle', class: 'fa-question-circle'
+            .sell-form-box
+              .form-group.sell-form-price
+                = f.label :price do
+                  .sell-form-price_left
+                    .sell-form-sub_title-price
+                      価格
+                      %span.form-require.sell 必須
+                  .sell-form-price_right
+                    %h5.sell-contents__comment
+                      ¥
+                      = f.number_field :price, placeholder: "例）300",min:"300", max:"9999999",class: "sell-form-text_number"
+              .sell-form-price-fee
+                %p.sell-form-price-fee-text
+                  販売手数料 (10%)
+                .sell-form-price-fee-num -
+              .sell-form-price-gains
+                %h3.sell-form-price-gains-text
+                  販売利益
+                .sell-form-price-gains-num -
+
+          / 注意事項以下
+          .sell-contents
+            %p.sell-contents__caution
+              =link_to "#",class: "text-blue" do
+                禁止されている出品、
+              =link_to "#",class: "text-blue" do
+                行為
+              を必ずご確認ください。
+              %br またブランド品でシリアルナンバー等がある場合はご記載ください。
+              =link_to "#",class: "text-blue" do
+                偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+              %br また、出品をもちまして
+              =link_to "#",class: "text-blue" do
+                加盟店規約
+              に同意したことになります。
+            .sell-contents__caution-space
+            = f.submit "出品する", class: "btn btn__red"
+            = link_to root_path do
+              .btn.btn__gray もどる
+
+        %footer.single-footer
+          = render 'shared/default-footer'
               他にもラブトキシックなど出品しています(^。^)
           .item-button-container.clearfix
             .item-button-left
@@ -124,18 +178,19 @@
               = link_to "#" do
                 %i.fa.fa-lock
                   %span あんしん・あんぜんへの取り組み
-        / modal
-        .modal-inner
-          .modal-inner__modal-body
-            .modal-inner__modal-body__modal-head 確認
-            .modal-inner__modal-body__modal-desc 削除すると二度と復活できません。<br>削除する代わりに停止することもできます。<br><br>本当に削除しますか？
+          / modal
+          .modal-inner
+            .modal-inner__modal-body
+              .modal-inner__modal-body__modal-head 確認
+              .modal-inner__modal-body__modal-desc 削除すると二度と復活できません。<br>削除する代わりに停止することもできます。<br><br>本当に削除しますか？
           .modal-inner__btns
             =link_to "キャンセル", "/users/mypage", class: "modal-inner__btns__btn-cancel"
             =link_to "削除する", "/items/#{@item.id}", method: :delete, class: "modal-inner__btns__btn-delete"
         / 編集ボタン
+        / - if user_signed_in? && current_user.id == seller_id 
         .buy-item-contents
           .item-edit-buttons
-            =link_to "商品を編集する", method: :edit, class: "btn.btn-default"
+            =link_to "商品を編集する", "/items/#{@item.id}", method: :edit, class: "btn.btn-default"
             %p or
             %form
               %input

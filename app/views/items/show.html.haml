@@ -1,5 +1,6 @@
 .single-container
   = render partial: "/shared/header"
+  = render partial: "/shared/bread-crumbs"
   %main.single-main
     %section.l-single-container
       .buy-container
@@ -127,6 +128,27 @@
               = link_to "#" do
                 %i.fa.fa-lock
                   %span あんしん・あんぜんへの取り組み
+          / modal
+          .modal-inner
+            .modal-inner__modal-body
+              .modal-inner__modal-body__modal-head 確認
+              .modal-inner__modal-body__modal-desc 削除すると二度と復活できません。<br>削除する代わりに停止することもできます。<br><br>本当に削除しますか？
+            .modal-inner__btns
+              =link_to "キャンセル", "/items/#{@item.id}", class: "modal-inner__btns__btn-cancel"
+              =link_to "削除する", "/items/#{@item.id}", method: :delete, class: "modal-inner__btns__btn-delete"
+        / 編集ボタン
+        / %if item.current_user.id == current_user.id
+        .buy-item-contents
+          .buttons-wrap
+            .item-edit-buttons.button-red.btn-default 
+              = link_to "商品を編集する", "/items/#{@item.id}/edit", method: :get, class: "a"
+            %p or
+            %form
+              %input  
+              %button.button-gray.btn-default 出品を一旦停止する
+              %button#item-delete.button-gray.btn-default この商品を削除する
+        / modal
+        .modal-overlay
         / コメント投稿
         .buy-item-contents
           .item-detail-message
