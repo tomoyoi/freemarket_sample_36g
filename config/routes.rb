@@ -23,4 +23,7 @@ Rails.application.routes.draw do
     post :pay, on: :member
     resources :likes, only: [:create, :destroy]
   end
+
+  resources :categories, only: [:index, :new, :create]
+  resources :sizes, only: [:index, :new, :create]
 end

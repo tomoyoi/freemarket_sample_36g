@@ -12,12 +12,16 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_23_082127) do
 =======
 ActiveRecord::Schema.define(version: 2019_02_14_054934) do
 >>>>>>> ono0satoshi/master
 =======
 ActiveRecord::Schema.define(version: 2019_03_10_055553) do
+>>>>>>> ono0satoshi/master
+=======
+ActiveRecord::Schema.define(version: 2019_03_12_074930) do
 >>>>>>> ono0satoshi/master
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,7 +102,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.string "standard_shipping_time"
     t.bigint "seller_id"
     t.bigint "buyer_id"
-    t.string "brand"
+    t.string "brand", null: false
     t.bigint "size_id"
     t.bigint "category_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
@@ -125,6 +129,19 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_payments_on_user_id"
+  end
+
+  create_table "seizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+  end
+
+  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -160,12 +177,20 @@ ActiveRecord::Schema.define(version: 2019_03_10_055553) do
     t.string "token"
     t.string "meta"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ono0satoshi/master
 =======
     
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+>>>>>>> ono0satoshi/master
+=======
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
 >>>>>>> ono0satoshi/master
   end
 
