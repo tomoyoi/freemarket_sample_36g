@@ -93,10 +93,8 @@ ActiveRecord::Schema.define(version: 2019_03_12_074930) do
     t.string "brand", null: false
     t.bigint "size_id"
     t.bigint "category_id"
-    t.bigint "seize_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["seize_id"], name: "index_items_on_seize_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
     t.index ["size_id"], name: "index_items_on_size_id"
   end
@@ -177,7 +175,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_074930) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "seizes"
   add_foreign_key "items", "sizes"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
