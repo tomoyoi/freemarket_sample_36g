@@ -11,12 +11,9 @@ Rails.application.routes.draw do
     get :mypage, on: :member
   end
   post 'users/confirm' => 'users#confirm'
-<<<<<<< HEAD
   get 'items/sell'
   get 'items/pconfirm'
   get 'items/edit'
-=======
->>>>>>> ono0satoshi/master
   get 'welcome/index'
   resources :items do
     get :buy, on: :member
